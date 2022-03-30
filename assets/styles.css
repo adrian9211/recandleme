@@ -1,0 +1,82 @@
+body {
+    font-family: 'Outfit', sans-serif;
+}
+/*Navbar active */
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+    color: #F5BE3B;
+    font-weight: bolder;
+}
+
+
+.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .show>.nav-link {
+    color: black;
+    font-weight: bold;
+
+}
+
+.bg-light {
+    background-color: #FFFFFF !important;
+}
+
+.navbar-nav {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.nav-item {
+    padding-left: 65px;
+    padding-right: 65px;
+}
+
+.headerLogo {
+    padding-top: 200px;
+    margin-top: 200px;
+    width:400px;
+    height:100px;
+}
+
+.headerImg{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+
+
+/* Container holding the image and the text */
+.containerHeader {
+    position: relative;
+    text-align: center;
+    color: #F5BE3B;
+}
+
+.containerHeader img {
+
+}
+
+
+/* Centered text */
+.centered {
+    font-size: 3rem;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.seeMoreBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 140px;
+    transform: translate(-50%, -50%);
+}
+
+h2  {
+    color: #F5BE3B;
+}
+
+.about {
+    max-width: 600px;
+}
+
