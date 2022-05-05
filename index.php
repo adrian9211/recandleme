@@ -274,5 +274,6 @@ include('assets/includes/header.php');
 </div>
 
 <?php
+# Include footer
 include('assets/includes/footer.php'); 
 ?>

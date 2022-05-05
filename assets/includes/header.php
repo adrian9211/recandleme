@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,15 +13,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- jQuery CDN  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <title><?php echo $page_title; ?></title>
 </head>
 <body>
 <!--Navbar section-->
-<nav class="navbar  navbar-expand-lg navbar-light bg-light mb-5 " id="navbar">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5" id="navbar">
     <div class="container-fluid">
-        <a class="navbar-brand ms-lg-5 " href="#">
-            <img  src="assets/images/icons/recandleme-logo2.png" alt="..." >
+        <a class="navbar-brand ms-lg-5" href="#">
+            <img src="assets/images/icons/recandleme-logo2.png" alt="..." >
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,26 +32,33 @@
             <ul class="navbar-nav text-center ">
                 <li class="nav-item ps-4 pe-4">
                     <!-- If the page title is 'RecandleMe', set this link as active class, and aria-current as true -->
-                    <a class="nav-link<?php if ($page_title='RecandleMe') { echo ' active" aria-current="true"'; } ?> href="#home">Home</a>
+                    <a class="nav-link<?php if ($page_title='RecandleMe') { echo ' active" aria-current="true'; } echo '"'; ?> href="#home">Home</a>
                 </li>
                 <li class="nav-item ps-4 pe-4">
-                    <a class="nav-link<?php if ($page_title='') { echo ' active" aria-current="true"'; } ?> href="#shop">Shop</a>
+                    <a class="nav-link<?php if ($page_title='') { echo ' active" aria-current="true'; } echo '"'; ?> href="#shop">Shop</a>
                 </li>
                 <li class="nav-item ps-4 pe-4">
-                    <a class="nav-link<?php if ($page_title='') { echo ' active" aria-current="true"'; } ?> href="#about">About Us</a>
+                    <a class="nav-link<?php if ($page_title='') { echo ' active" aria-current="true'; } echo '"'; ?> href="#about">About Us</a>
                 </li>
                 <li class="nav-item ps-4 pe-4">
-                    <a class="nav-link<?php if ($page_title='') { echo ' active" aria-current="true"'; } ?> href="#contact">Contact</a>
+                    <a class="nav-link<?php if ($page_title='') { echo ' active" aria-current="true'; } echo '"'; ?> href="#contact">Contact</a>
                 </li>
                 <li class="nav-item ps-4 pe-4">
-                    <a class="nav-link<?php if ($page_title='') { echo ' active" aria-current="true"'; } ?> href="#blog">Blog</a>
+                    <a class="nav-link<?php if ($page_title='') { echo ' active" aria-current="true'; } echo '"'; ?> href="#blog">Blog</a>
                 </li>
                 <li class="nav-item ps-4 pe-4">
-                    <a class="nav-link<?php if ($page_title='') { echo ' active" aria-current="true"'; } ?> href="#more">More</a>
+                    <a class="nav-link<?php if ($page_title='') { echo ' active" aria-current="true'; } echo '"'; ?> href="#more">More</a>
                 </li>
             </ul>
-            <button class="btn btn btn-info text-center" type="submit">Login</button>
+            <button class="btn btn btn-info text-center" type="button" data-bs-toggle="modal" data-bs-target="<?php if (isset($_SESSION['user_id'])){ echo '#logoutModal'; } else { echo '#loginModal'; } ?>"><?php if (isset($_SESSION['user_id'])) { echo 'Logout'; } else { echo 'Login'; } ?></button>
+            <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) : ?>
+                <a class="btn btn-info text-center ms-1" type="button" href="assets/admin/adminpanel.php" target="_blank">Admin Panel</a>
+            <?php endif; ?>
         </div>
     </div>
 </nav>
 <!--Navbar section-->
+
+<?php include('assets/includes/login.php'); ?>
+<?php include('assets/includes/register.php'); ?>
+
