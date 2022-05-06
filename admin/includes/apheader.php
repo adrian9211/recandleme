@@ -43,7 +43,7 @@ else if ($_SESSION['admin'] == 1) {
         <div class="col-md-2">
                 <div class="w3-bar-block w3-gray">
                     <div class="h6 ps-2 mt-1 pt-1">Quick Links</div>
-                    <a href="../../index.php" class="w3-bar-item w3-button">Homepage</a>
+                    <a href="../index.php" class="w3-bar-item w3-button">Homepage</a>
                     <a href="" class="w3-bar-item w3-button">Shop</a>
                     <a href="" class="w3-bar-item w3-button">Contact</a>
                     <a href="" class="w3-bar-item w3-button">Blog</a>
