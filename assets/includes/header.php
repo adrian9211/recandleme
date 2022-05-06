@@ -52,7 +52,7 @@
             </ul>
             <button class="btn btn btn-info text-center" type="button" data-bs-toggle="modal" data-bs-target="<?php if (isset($_SESSION['user_id'])){ echo '#logoutModal'; } else { echo '#loginModal'; } ?>"><?php if (isset($_SESSION['user_id'])) { echo 'Logout'; } else { echo 'Login'; } ?></button>
             <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) : ?>
-                <a class="btn btn-info text-center ms-1" type="button" href="assets/admin/adminpanel.php" target="_blank">Admin Panel</a>
+                <a class="btn btn-info text-center ms-1" type="button" href="admin/adminpanel.php" target="_blank">Admin Panel</a>
             <?php endif; ?>
         </div>
     </div>

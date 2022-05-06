@@ -12,4 +12,11 @@ footer {
   margin-top: auto;
 }
 
+.adminBtn {
+  text-decoration: none;
+}
+.adminBtn:hover {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=style.css.map */

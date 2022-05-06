@@ -1,3 +1,7 @@
+        </div> <!-- End of .col -->
+    </div> <!-- End of .row -->
+</div> <!-- End of "w3-container flex-shrink-0" -->
+
 <!-- Footer -->
 <div class="w3-container mt-auto">
     <footer class="w3-bar w3-gray w3-center my-1">

@@ -71,12 +71,12 @@
     $phone = mysqli_real_escape_string($dbc, trim($_POST['phone']));
 
     $errors = [];
-    print_r($errors);
+    // print_r($errors);
     $query = "INSERT INTO users (user_name, first_name, last_name, email, pass, phone, reg_date) VALUES ('$user_name', '$first_name', '$last_name', '$email', SHA2('$password',256), '$phone', NOW() )";
     $result = mysqli_query ($dbc, $query) ;
     if ($result) {
         # echo '<script>alert("You have registered successfully!");</script>';
-        include('assets/includes/functions.php');
+        // include('assets/includes/functions.php');
         messageModal('You have registered successfully!');
     }
 }

@@ -1,3 +1,15 @@
+<?php 
+session_start();
+if($_SESSION['admin'] != 1) {
+    echo '<script>location.href="../index.php";</script>';
+} 
+else if ($_SESSION['admin'] == 1) {
+    include('../assets/includes/functions.php');
+    include('../assets/includes/dbaccess.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +27,7 @@
     <div class="w3-bar w3-dark-gray">
         <a href="adminpanel.php" class="w3-bar-item w3-button w3-mobile px-5 mx-3">Administration Panel</a>
         <a href="" class="w3-bar-item w3-button w3-mobile">Settings</a>
-        <a href="" class="w3-bar-item w3-button w3-mobile">User Management</a>
-
+        <a href="adminusers.php" class="w3-bar-item w3-button w3-mobile">User Management</a>
         <div class="w3-dropdown-hover w3-mobile">
             <button class="w3-button">Shop Management <i class="fa fa-caret-down"></i></button>
             <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
@@ -27,28 +38,17 @@
         </div>
         <a href="" class="w3-bar-item w3-button w3-mobile">Blog</a>
     </div>
-    <div class="w3-cell" style="width:17rem">
-    <div class="w3-bar-block w3-gray">
-        <div class="h6 ps-2 mt-1 pt-1">Quick Links</div>
-        <a href="../../index.php" class="w3-bar-item w3-button">Homepage</a>
-        <a href="" class="w3-bar-item w3-button">Shop</a>
-        <a href="" class="w3-bar-item w3-button">Contact</a>
-        <a href="" class="w3-bar-item w3-button">Blog</a>
-    </div> 
-    </div>
 
-    <div class="w3-cell ps-2" style="width:25rem">
-    <div class="w3-bar-block w3-light-blue">
-        <div class="h6 ps-3 mt-1 pt-1 w3-blue">Administration Panel</div>
-        <a href="" class="w3-bar-item w3-button">Settings</a>
-        <a href="" class="w3-bar-item w3-button">User Management</a>
-        <a href="" class="w3-bar-item w3-button">Blog</a>
-        <div class="h6 ps-3 mt-1 pt-1 w3-blue">Shop Management</div>
-        <a href="" class="w3-bar-item w3-button">Orders</a>
-        <a href="" class="w3-bar-item w3-button">Add Products</a>
-        <a href="" class="w3-bar-item w3-button">Manage Products</a>
-    </div> 
-    </div>
+    <div class="row">
+        <div class="col-md-2">
+                <div class="w3-bar-block w3-gray">
+                    <div class="h6 ps-2 mt-1 pt-1">Quick Links</div>
+                    <a href="../../index.php" class="w3-bar-item w3-button">Homepage</a>
+                    <a href="" class="w3-bar-item w3-button">Shop</a>
+                    <a href="" class="w3-bar-item w3-button">Contact</a>
+                    <a href="" class="w3-bar-item w3-button">Blog</a>
+                </div>
+        </div>
+        <div class="col pt-2">
 
 
-</div>

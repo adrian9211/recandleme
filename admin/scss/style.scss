@@ -11,3 +11,10 @@ body {
 footer {
     margin-top: auto;
 }
+
+.adminBtn {
+    text-decoration: none;
+    &:hover {
+        cursor: pointer;
+    }
+}
