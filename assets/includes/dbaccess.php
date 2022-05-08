@@ -1,5 +1,5 @@
 <?php
-$dbc = mysqli_connect( 'localhost' , 'root' , '' , 'recandleme_db' ) 
+$dbc = mysqli_connect( 'HOST' , 'USER' , 'PASS' , 'DATABASE' ) 
 OR die (mysqli_connect_error());
 mysqli_set_charset( $dbc , 'utf8' );
 ?>
