@@ -61,7 +61,7 @@
     echo "<script>$('#alertModal').modal('show');</script>";
 
     # Connect to Database
-    include('assets/includes/dbaccess.php');
+    include('../db/dbaccess.php');
     # Assign variables to form input
     $user_name = mysqli_real_escape_string($dbc, trim($_POST['user_name']));
     $first_name = mysqli_real_escape_string($dbc, trim($_POST['first_name']));

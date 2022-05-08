@@ -4,7 +4,7 @@ if($_SESSION['admin'] != 1) {
     echo '<script>location.href="../index.php";</script>';
 } 
 else if ($_SESSION['admin'] == 1) {
-    include('../assets/includes/dbaccess.php');
+    include('../../db/dbaccess.php');
 }
 
 $q = "SELECT * FROM users WHERE user_id = ". $_GET['id'];

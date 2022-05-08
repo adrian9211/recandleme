@@ -52,4 +52,10 @@
 <?php if(isset($_POST['confirmBtn'])) { return true; } else { return false; }
 } ?>
 
-
+<?php function dbClose() {
+  # Close database connection.
+  if (isset($dbc)) {
+    $dbc->close();
+  }
+}
+?>

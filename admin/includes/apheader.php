@@ -5,7 +5,6 @@ if($_SESSION['admin'] != 1) {
 } 
 else if ($_SESSION['admin'] == 1) {
     include('../assets/includes/functions.php');
-    include('../assets/includes/dbaccess.php');
 }
 
 ?>
@@ -36,7 +35,7 @@ else if ($_SESSION['admin'] == 1) {
                 <a href="" class="w3-bar-item w3-button w3-mobile">Manage Products</a>
             </div>
         </div>
-        <a href="" class="w3-bar-item w3-button w3-mobile">Blog</a>
+        <a href="" class="w3-bar-item w3-button w3-mobile">Blog Management</a>
     </div>
 
     <div class="row">

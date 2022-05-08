@@ -70,7 +70,7 @@ else { ?>
 <?php if(isset($_POST['loginBtn'])) {
     if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == 0) {
         # Connect to Database
-        include('assets/includes/dbaccess.php');
+        include('../db/dbaccess.php');
         $email_safe = mysqli_real_escape_string($dbc, trim($_POST['email']));
         $pass_safe = mysqli_real_escape_string($dbc, trim($_POST['password']));
         $query = "SELECT * FROM users WHERE email = '$email_safe' AND pass = SHA2('$pass_safe',256)";
@@ -92,6 +92,7 @@ else { ?>
         else {
             messageModal('Something went wrong. Please try again, or contact us to report an error');
         }
+        dbClose();
     }
     else {
         messageModal('User already logged in.');
