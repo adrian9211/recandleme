@@ -47,7 +47,7 @@
                     <a class="nav-link<?php if ($page_title='Blog') { echo ' active" aria-current="true'; } echo '"'; ?> href="blog.php">Blog</a>
                 </li>
                 <li class="nav-item ps-4 pe-4">
-                    <a class="nav-link<?php if ($page_title='More') { echo ' active" aria-current="true'; } echo '"'; ?> href="more.php">More</a>
+                    <a class="nav-link<?php if ($page_title='More') { echo ' active" aria-current="true'; } echo '"'; ?> href="sustainability.php">Sustainability</a>
                 </li>
             </ul>
             <button class="btn btn btn-info text-center" type="button" data-bs-toggle="modal" data-bs-target="<?php if (isset($_SESSION['user_id'])){ echo '#logoutModal'; } else { echo '#loginModal'; } ?>"><?php if (isset($_SESSION['user_id'])) { echo 'Logout'; } else { echo 'Login'; } ?></button>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="211f8d55-998e-4eb0-bcd7-03852246bccd" name="filezilla">
+        <fileTransfer rootFolder="/opt/bitnami/apache/htdocs" accessType="SFTP" host="34.122.169.61" port="22" sshConfigId="1a1072a0-c277-4645-9ed8-fcdfb4a88420" sshConfig="rsa-key-20220308@34.122.169.61:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
