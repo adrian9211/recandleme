@@ -17,7 +17,7 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <a class="btn btn-success btn-sm modalClose" data-bs-dismiss="modal" id="modalCloseBottom" href="">Ok</a>
+        <a class="btn btn-success btn-sm modalClose" data-bs-dismiss="modal" id="modalCloseBottom" href="">OK</a>
       </div>
 
     </div>
@@ -42,7 +42,7 @@
           </div>
           <!-- Modal footer -->
           <div class="modal-footer">
-              <button type="submit" class="btn btn-success btn-sm modalClose" data-bs-dismiss="modal" name="confirmBtn" href="">Ok</button>
+              <button type="submit" class="btn btn-success btn-sm modalClose" data-bs-dismiss="modal" name="confirmBtn" href="">OK</button>
               <a class="btn btn-danger btn-sm modalClose" data-bs-dismiss="modal" id="modalCloseBottom" href="">Cancel</a>
           </div>
           </div>

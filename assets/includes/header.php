@@ -58,7 +58,7 @@
     </div>
 </nav>
 <!--Navbar section-->
-
+<?php include('assets/includes/functions.php'); ?>
 <?php include('assets/includes/login.php'); ?>
 <?php include('assets/includes/register.php'); ?>
 

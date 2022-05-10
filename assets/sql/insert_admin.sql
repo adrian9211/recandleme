@@ -1,1 +1,0 @@
-insert into users (admin, active, user_name, email, pass, reg_date) values (0,0,'test2','tester2@testers.test',SHA2('pass',256), NOW());

@@ -1,4 +1,4 @@
-<?php include('assets/includes/functions.php'); ?>
+
 
 <?php if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == 0) { ?>
     <!-- Login Modal  -->
@@ -57,7 +57,7 @@ else { ?>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success btn-sm modalClose" data-bs-dismiss="modal" name="logoutBtn" href="">Ok</button>
+                        <button type="submit" class="btn btn-success btn-sm modalClose" data-bs-dismiss="modal" name="logoutBtn" href="">OK</button>
                         <a class="btn btn-danger btn-sm modalClose" data-bs-dismiss="modal" id="modalCloseBottom" href="">Cancel</a>
                     </div>
                 </div>
