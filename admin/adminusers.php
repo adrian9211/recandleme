@@ -1,5 +1,5 @@
 <?php include('includes/apheader.php'); ?>
-<script src="js/users.js"></script>
+<script src="js/functions.js"></script>
 <?php
 include('../../db/dbaccess.php');
 $query = "SELECT * FROM users ORDER BY reg_date";

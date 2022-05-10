@@ -31,3 +31,13 @@ function userAdmin(user, id, admin) {
         alert ("Error, please try again");
     }
 }
+
+function adminEmail(email) {
+    var msg = "Are you sure you want to change the sites email address to " + email + "?\n This will only affect new emails, existing emails will have to be \nforwarded manually to the new address.";
+    if(confirm(msg) == true) {
+        location.href="adminsettings.php?webmail=" + email;
+    }
+    else {
+        location.href="adminsettings.php";
+    }
+}
