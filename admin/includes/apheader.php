@@ -26,6 +26,7 @@ else if ($_SESSION['admin'] == 1) {
     <div class="w3-bar w3-dark-gray">
         <a href="adminpanel.php" class="w3-bar-item w3-button w3-mobile px-5 mx-3">Administration Panel</a>
         <a href="adminsettings.php" class="w3-bar-item w3-button w3-mobile">Settings</a>
+        <a href="admincontact.php" class="w3-bar-item w3-button w3-mobile">Contact</a>
         <a href="adminusers.php" class="w3-bar-item w3-button w3-mobile">User Management</a>
         <div class="w3-dropdown-hover w3-mobile">
             <button class="w3-button">Shop Management <i class="fa fa-caret-down"></i></button>

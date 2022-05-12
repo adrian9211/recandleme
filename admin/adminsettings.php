@@ -11,9 +11,8 @@ $row = $result->fetch_assoc();
     <div class="w3-bar-block w3-light-grey">
         <div class="h5 ps-1 mt-1 pt-1 w3-light-grey w3-text-blue">Administration Panel</div>
         <form method="post">
-        <?php 
-        echo '<label for="admin_email" class="form-label mt-2 ps-1">Email address for webmail: </label> <input type="text" class="form-control form-control-sm flex-fill" name="webmail" value="'.$row['admin_email'].'" id="webmail"><input type="submit" class="btn w3-blue btn-sm mt-3 w-100" value="Update">';
-        ?>
+        <label for="admin_email" class="form-label mt-2 ps-1">Email address for webmail: </label> <input type="text" class="form-control form-control-sm flex-fill" name="webmail" placeholder="<?php echo $row['admin_email'];?>" id="webmail">      
+        <input type="submit" class="btn w3-blue btn-sm mt-3 w-100" value="Update">
         </form>
     </div>
 </div>

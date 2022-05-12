@@ -5,7 +5,7 @@ include('../../db/dbaccess.php');
 $query = "SELECT * FROM users ORDER BY reg_date";
 $result = mysqli_query($dbc, $query);
 
-echo '<div class="h5 w3-text-dark-gray">User Management</div>';
+echo '<div class="h5 w3-text-blue">User Management</div>';
 echo '<div class="row w3-blue me-2">';
 echo '<div class="col-1">Actions</div><div class="col-1">USER ID</div><div class="col-1">Username</div><div class="col-2">Email</div><div class="col-2">Phone Number</div><div class="col-1">Date Joined</div>';
 echo '</div>';
