@@ -105,20 +105,21 @@ include('assets/includes/header.php');
                         <!-- Name input -->
                         <div class="mb-3">
                             <label class="form-label" for="name">Name</label>
-                            <input name="name" class="form-control" id="name" type="text" <?php if (isset($_POST['name'])) { echo $_POST['name']; } else { echo 'placeholder="Name"'; } ?> required>
+                            <input name="name" class="form-control" id="name" type="text" <?php if (isset($_POST['name'])) { echo 'value="'.$_POST['name'].'"'; } else { echo 'placeholder="Name"'; } ?> required>
                         </div>
 
                         <!-- Email address input -->
                         <div class="mb-3">
                             <label class="form-label" for="emailAddress">Email Address</label>
-                            <input name="email" class="form-control" id="emailAddress" type="email" <?php if (isset($_POST['email'])) { echo $_POST['email']; } else { echo 'placeholder="Email Address"'; } ?> required>
+                            <input name="email" class="form-control" id="emailAddress" type="email" <?php if (isset($_POST['email'])) { echo 'value="'.$_POST['email'].'"'; } else { echo 'placeholder="Email Address"'; } ?> required>
 
                         </div>
 
                         <!-- Message input -->
                         <div class="mb-3">
                             <label class="form-label" for="message">Message</label>
-                            <textarea name="message" class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;" required><?php if (isset($_POST['message'])) { echo $_POST['message']; } ?></textarea>
+                            <textarea name="message" class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;" maxlength="996" required><?php if (isset($_POST['message'])) { echo $_POST['message']; } ?></textarea>
+                            <!-- There is some discrepancy between the maxlength value and the mysql character count, so I've set maxlength to 996 to compensate -->
                         </div>
 
                         <div data-netlify-recaptcha="true"></div>

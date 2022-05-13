@@ -61,8 +61,10 @@
 ?>
 
 <?php function contactFunction() {
-  if (!isset($_POST['name']) || !isset($_POST['email']) || !isset($_POST['message'])) {
-    messageModal('Please fill in all the required fields');
+  if (!isset($_POST['name']) || !isset($_POST['email']) || !isset($_POST['message']) && !isset($_POST)) {
+    if (!isset($_POST['loginBtn']) && !isset($_POST['registerBtn'])){
+      messageModal('Please fill in all the required fields');
+    }
   }
   else {
     include('../db/dbaccess.php');

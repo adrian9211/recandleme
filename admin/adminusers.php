@@ -14,7 +14,7 @@ $phpdate = strtotime($row['reg_date']);
 $dateReformat = date("d.m.Y", $phpdate);
 $usersName = $row['user_name'];
 echo '<div class="row w3-light-blue me-2 py-1 w3-border-bottom w3-border-light-blue w3-hover-border-white">';
-echo '<div class="col-1"><a class="adminBtn" onclick="deleteUser(\''.$usersName.'\', \''.$row['user_id'].'\')" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove User">&#9940;</a> <a class="adminBtn" onclick="userAdmin(\''.$usersName.'\', \''.$row['user_id'].'\', \''.$row['admin'].'\')" data-bs-toggle="tooltip" data-bs-placement="bottom"'; 
+echo '<div class="col-1"><a class="adminBtn" onclick="deleteUser(\''.$usersName.'\', \''.$row['user_id'].'\')" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove User">&#10060;</a> <a class="adminBtn" onclick="userAdmin(\''.$usersName.'\', \''.$row['user_id'].'\', \''.$row['admin'].'\')" data-bs-toggle="tooltip" data-bs-placement="bottom"'; 
 if ($row['admin'] != 1) {
     echo ' title="Make Admin">&#127344;';
 }        

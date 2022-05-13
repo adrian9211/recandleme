@@ -41,3 +41,13 @@ function adminEmail(email) {
         location.href="adminsettings.php";
     }
 }
+
+function deleteContact(id){
+    var msg = "Are you sure you want to delete this contact message?\n You will not be able to undo this action.";
+    if(confirm(msg) == true) {
+        location.href="admin_delete_contact.php?id=" + id;
+    }
+    else {
+        location.href="admincontact.php";
+    }
+}
