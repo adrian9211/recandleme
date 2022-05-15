@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 <head>
     <meta charset="UTF-8">
@@ -18,7 +18,7 @@
 
     <title><?php echo $page_title; ?></title>
 </head>
-<body>
+<body class="d-flex flex-column h-100">
 <!--Navbar section-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5" id="navbar">
     <div class="container-fluid">

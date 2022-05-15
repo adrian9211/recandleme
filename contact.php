@@ -99,7 +99,7 @@ include('assets/includes/header.php');
                 <div class="container contact-form py-4 mx-auto d-block">
 
                     <!-- Bootstrap 5 starter form -->
-                    <form name="contact" method="POST" action="" //data-netlify-recaptcha="true" //data-netlify="true">
+                    <form name="contact" method="POST" action="" data-netlify-recaptcha="true" data-netlify="true">
                         <h2 class="main_text text-center pt-sm-0 pt-md-1 pt-lg-2 pb-4 fs-1 mb-4">Get in touch</h2>
 
                         <!-- Name input -->

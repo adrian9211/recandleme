@@ -34,5 +34,6 @@ echo '</div>';
 dbClose();
 ?>
 
+<script src="js/utilities.js"></script>
 <?php include('includes/apfooter.php'); ?>
 

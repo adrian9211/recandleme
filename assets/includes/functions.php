@@ -103,7 +103,7 @@
 
             $q = "insert into messages (name, email, message, send_date) values ('$name_safe','$mail_safe','$msg_safe', NOW())";
             $r = mysqli_query($dbc, $q);
-            if($r && $email) {
+            if($r) {
               messageModal('Message sent!');
             }
   }

@@ -20,11 +20,31 @@ include('assets/includes/header.php');
         </div>
         <div class="col-xl-1 col-sm-1">
             <div class="header-text-right ms-xl-4 me-xl-4 ms-sm-0 me-sm-0">
-
             </div>
         </div>
     </div>
 
+    <div class="row">
+        
+        <?php 
+            include('../db/dbaccess.php');
+            $query = "SELECT * FROM products";
+            $result = mysqli_query($dbc, $query);
+            if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    echo '<div class="col shadow-sm m-1">';
+                    echo '<div class="row">'.$row['item_name'].'</div>';
+                    echo '<div class="row"><img src="shop/'.$row['img_url'].'"></div>';
+                    echo '<div class="row">'.$row['item_desc'].'</div>';
+                    echo '<div class="row">'.$row['item_name'].'</div>';
+                    echo '<div class="row">'.$row['item_name'].'</div>';
+                    echo '<div class="row">'.$row['item_name'].'</div>';
+                    echo '</div>';
+                }
+            }
+        ?>
+
+    </div>
 
     <!--    Folllow Us-->
 

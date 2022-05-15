@@ -1,6 +1,6 @@
 <!--Footer-->
 
-<footer>
+<footer class="mt-auto">
     <div class="row">
         <div class="col-xl-3 col-sm-6 footer_grid">
             <h5>Company</h5>
