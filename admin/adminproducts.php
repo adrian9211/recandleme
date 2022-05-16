@@ -19,7 +19,7 @@
             </div>
             <div class="input-group mb-3 input-group-sm">
                <span class="input-group-text">Price</span>
-              <input type="number" class="form-control" name="price" <?php if(isset($_POST['price'])){ echo 'value="'.$_POST['price'].'"'; } else { echo 'value="0.00"'; } ?> placeholder='0.00' step="0.01" min="0.01">
+              <input type="number" class="form-control" name="price" <?php if(isset($_POST['price'])){ echo 'value="'.$_POST['price'].'"'; } else { echo 'value="0.00"'; } ?> placeholder='0.00' step="0.01" min="0.00">
             </div>
             <div class="input-group input-group-sm mb-3">
                 <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show this product in the shop">

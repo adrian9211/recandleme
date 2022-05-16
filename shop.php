@@ -32,14 +32,14 @@ include('assets/includes/header.php');
             $result = mysqli_query($dbc, $query);
             if (mysqli_num_rows($result) > 0) {
                 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                    echo '<div class="col shadow-sm m-1">';
-                    echo '<div class="row">'.$row['item_name'].'</div>';
-                    echo '<div class="row"><img src="shop/'.$row['img_url'].'"></div>';
-                    echo '<div class="row">'.$row['item_desc'].'</div>';
-                    echo '<div class="row">'.$row['item_name'].'</div>';
-                    echo '<div class="row">'.$row['item_name'].'</div>';
-                    echo '<div class="row">'.$row['item_name'].'</div>';
-                    echo '</div>';
+                    if($row['stock'] > 0 && $row['visible'] != 0) {
+                        echo '<div class="col shadow-sm m-1">';
+                        echo '<div class="row fw-bold">'.$row['item_name'].'</div>';
+                        echo '<div class="row"><img src="shop/'.$row['img_url'].'" alt="'.$row['item_desc'].'" style="width:5rem" onclick="showModal(this);"></div>';
+                        echo '<div class="row">'.$row['item_desc'].'</div>';
+                        echo '<div class="row">Price: &pound;'.$row['item_price'].'</div>';
+                        echo '</div>';
+                    }
                 }
             }
             else {
@@ -76,6 +76,15 @@ include('assets/includes/header.php');
 
     <!--    Folllow Us-->
 </div>
+
+<!-- The Modal -->
+<div id="shopModal" class="modal shop-modal">
+  <span class="close shop-close">&times;</span>
+  <img class="modal-content shop-modal-content" id="shopImg">
+  <div id="shopCaption"></div>
+</div>
+
+<script src="admin/js/modal.js"></script>
 
 <?php
 # Include footer
