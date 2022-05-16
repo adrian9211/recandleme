@@ -24,6 +24,9 @@ if (mysqli_num_rows($r) == 1) :?>
                 <span class="input-group-text">Current Image: </span> <label class="m-1 fst-italic"> <?php echo $row['img_url'];?></label>
                 </div>
                 <div class="input-group mb-3 input-group-sm">
+                <img src="../shop/<?php echo $row['img_url'];?>" style="width:5rem">
+                </div>
+                <div class="input-group mb-3 input-group-sm">
                 <span class="input-group-text">Replace</span>
                 <input type="file" name="img_url" class="form-control">
                 </div>

@@ -14,7 +14,7 @@ if (mysqli_num_rows($result) > 0) :?>
     while($row = mysqli_fetch_array( $result, MYSQLI_ASSOC))
     {
         echo '<div class="row w3-light-blue me-2">';
-        echo '<div class="col-1"><a href="admineditproduct.php?id='.$row['item_id'].'" class="adminBtn">&#9999;&nbsp;&nbsp;&nbsp; </a> '.$row['item_id'].'</div><div class="col-1">'.$row['item_name'].'</div><div class="col-6">'.$row['item_desc'].'</div><div class="col-1">'.$row['img_url'].'</div><div class="col-1">'.$row['item_price'].'</div><div class="col-1">'.$row['visible'].'</div><div class="col-1">'.$row['stock'].'</div>';
+        echo '<div class="col-1"><a href="admineditproduct.php?id='.$row['item_id'].'" class="adminBtn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit this Product">&#9999;&nbsp;&nbsp;&nbsp; </a> '.$row['item_id'].'</div><div class="col-1">'.$row['item_name'].'</div><div class="col-6">'.$row['item_desc'].'</div><div class="col-1">'.$row['img_url'].'</div><div class="col-1">'.$row['item_price'].'</div><div class="col-1">'.$row['visible'].'</div><div class="col-1">'.$row['stock'].'</div>';
         echo '</div>';
     }
     ?>
