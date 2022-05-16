@@ -335,6 +335,18 @@ footer a:link {
 }
 
 /* Lukes additions (please move and edit as necessary) */
+.shop {
+    overflow: auto;
+  }
+  
+  .shopImg {
+    cursor: pointer;
+  }
+  
+  .shopLink {
+    text-decoration: none;
+  }
+  
 /* The Modal (background) */
 .shop-modal {
     display: none;

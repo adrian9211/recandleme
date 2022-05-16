@@ -33,11 +33,11 @@ include('assets/includes/header.php');
             if (mysqli_num_rows($result) > 0) {
                 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                     if($row['stock'] > 0 && $row['visible'] != 0) {
-                        echo '<div class="col shadow-sm m-1">';
-                        echo '<div class="row fw-bold">'.$row['item_name'].'</div>';
-                        echo '<div class="row"><img src="shop/'.$row['img_url'].'" alt="'.$row['item_desc'].'" style="width:5rem" onclick="showModal(this);"></div>';
-                        echo '<div class="row">'.$row['item_desc'].'</div>';
-                        echo '<div class="row">Price: &pound;'.$row['item_price'].'</div>';
+                        echo '<div class="col shadow-sm m-1 py-1">';
+                        echo '<div class="row fw-bold px-3">'.$row['item_name'].'</div>';
+                        echo '<div class="row"><img src="shop/'.$row['img_url'].'" alt="'.$row['item_desc'].'" style="width:5rem" class="shopImg" id="'.$row['item_id'].'" onclick="showModal(this);"></div>';
+                        echo '<div class="row px-1"><small>'.$row['item_desc'].'</small></div>';
+                        echo '<div class="row px-3">Price: &pound;'.$row['item_price'].'</div>';
                         echo '</div>';
                     }
                 }
