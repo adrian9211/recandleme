@@ -50,7 +50,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $r = mysqli_query($dbc, $q);
   if(mysqli_num_rows($r) > 0) { echo '<script>alert("Item name already exists, please choose another");</script>'; echo '<script>location.href="adminproducts.php";</script>'; }
   $img = 'no-image.png';
-  if($check = getimagesize($_FILES["item_img"]["tmp_name"])){
+  if(isset($_POST["item_img"]) && $check = getimagesize($_FILES["item_img"]["tmp_name"])){
     $filename = $_FILES['item_img']['name'];
     $tempname = $_FILES['item_img']['tmp_name'];                     
     $folder = "../shop/".$filename;

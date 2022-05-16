@@ -42,6 +42,9 @@ include('assets/includes/header.php');
                     echo '</div>';
                 }
             }
+            else {
+                echo '<div class="h5 m-5 text-dark">There are currently no products in the shop</div>';
+            }
         ?>
 
     </div>
