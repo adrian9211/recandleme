@@ -3,6 +3,7 @@
 $page_title = "Shop";
 # Include header file
 include('assets/includes/header.php');
+
 ?>
 
 <!--Header section-->
@@ -24,7 +25,7 @@ include('assets/includes/header.php');
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-4">
         
         <?php 
             include('../db/dbaccess.php');
@@ -33,17 +34,56 @@ include('assets/includes/header.php');
             if (mysqli_num_rows($result) > 0) {
                 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                     if($row['stock'] > 0 && $row['visible'] != 0) {
-                        echo '<div class="col shadow-sm m-1 py-1">';
+                        
+                        echo '<div class="col shadow-sm m-1 pt-1 pb-2 d-flex flex-column">';
                         echo '<div class="row fw-bold px-3">'.$row['item_name'].'</div>';
                         echo '<div class="row"><img src="shop/'.$row['img_url'].'" alt="'.$row['item_desc'].'" style="width:5rem" class="shopImg" id="'.$row['item_id'].'" onclick="showModal(this);"></div>';
                         echo '<div class="row px-1"><small>'.$row['item_desc'].'</small></div>';
-                        echo '<div class="row px-3">Price: &pound;'.$row['item_price'].'</div>';
-                        echo '</div>';
+                        echo '<div class="row px-3 mb-4">Price: &pound;'.$row['item_price'].'</div>';
+                        echo '<div class="row mt-auto"><button onclick="location.href=\'shop.php?item='.$row['item_id'].'\'" class="btn btn-warning btn-sm">Add To Cart &#128722;</button></div>';
+                        echo '</div>';                        
                     }
                 }
             }
             else {
                 echo '<div class="h5 m-5 text-dark">There are currently no products in the shop</div>';
+            }
+
+            if(isset($_GET['item'])) {
+                $id = $_GET['item'];
+                require('../db/dbaccess.php');
+                # Check product id against database 
+                $q = "SELECT * FROM products WHERE item_id = $id" ;
+                $r = mysqli_query($dbc, $q) ;
+                if (mysqli_num_rows($r) == 1 )
+                {
+                $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
+
+                # Check if cart already contains one of this product id.
+                if ( isset( $_SESSION['cart'][$id] ) )
+                { 
+                    # Add one more of this product.
+                    $_SESSION['cart'][$id]['quantity']++; 
+                    if (!isset($_SESSION['items'])){
+                    $_SESSION['items'] = "1";  
+                    } else { 
+                    $_SESSION['items']++;
+                    }
+                } 
+                else
+                {
+                    # Or add one of this product to the cart.
+                    $_SESSION['cart'][$id]= array ( 'quantity' => 1, 'price' => $row['item_price'] ) ;
+                    if (!isset($_SESSION['items'])){
+                    $_SESSION['items'] = "1";  
+                    } else { 
+                    $_SESSION['items']++;
+                    }
+                }
+                }
+
+                # Close database connection.
+                mysqli_close($dbc);
             }
         ?>
 
@@ -84,6 +124,7 @@ include('assets/includes/header.php');
   <div id="shopCaption"></div>
 </div>
 
+<script src="admin/js/functions.js"></script>
 <script src="admin/js/modal.js"></script>
 
 <?php

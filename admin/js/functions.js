@@ -51,3 +51,4 @@ function deleteContact(id){
         location.href="admincontact.php";
     }
 }
+

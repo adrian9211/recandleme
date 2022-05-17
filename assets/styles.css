@@ -444,4 +444,12 @@ footer a:link {
       width: 100%;
     }
   }
+  .bgCustomBlue{
+    color: white;
+    background-color: #2D4262;
+  }
+
+  .bgCustomRed{
+    background-color: #D09683;
+  }
   /* End of Lukes additions */
