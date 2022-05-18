@@ -1,5 +1,4 @@
 <?php function messageModal($msg) { ?>
-
 <div class="modal" id="alertModal" style="display:block">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -26,31 +25,28 @@
 
 <?php }  ?>
 
-<?php function confirmModal($msg, $modalTitle) { ?>
-  <form method="post">
-    <div class="modal">
-      <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-          <!-- Modal Header -->
-          <div class="modal-header">
-              <h6 class="modal-title"><?php echo $modalTitle; ?></h6>
-              <a class="btn-close modalClose" data-bs-dismiss="modal" id="modalCloseTop" href=""></a>
-          </div>
-          <!-- Modal body -->
-          <div class="modal-body">
-              <?php echo $msg; ?>
-          </div>
-          <!-- Modal footer -->
-          <div class="modal-footer">
-              <button type="submit" class="btn btn-success btn-sm modalClose" data-bs-dismiss="modal" name="confirmBtn" href="">OK</button>
-              <a class="btn btn-danger btn-sm modalClose" data-bs-dismiss="modal" id="modalCloseBottom" href="">Cancel</a>
-          </div>
-          </div>
+<?php function confirmModal($msg, $trueURL, $falseURL) { ?>
+<div class="modal" style="display:block">
+  <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+          <h6 class="modal-title">Confirm</h6>
+          <a class="btn-close modalClose" data-bs-dismiss="modal" id="modalCloseTop" href=""></a>
       </div>
-    </div>
-  </form>
-<?php if(isset($_POST['confirmBtn'])) { return true; } else { return false; }
-} ?>
+      <!-- Modal body -->
+      <div class="modal-body">
+          <?php echo $msg; ?>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+          <input type="submit" class="btn btn-success btn-sm modalClose" data-bs-dismiss="modal" name="confirmBtn" onclick="location.href='<?php echo $trueURL;?>'" value="OK">
+          <a class="btn btn-danger btn-sm modalClose" data-bs-dismiss="modal" id="modalCloseBottom"  onclick="location.href='<?php echo $falseURL;?>'">Cancel</a>
+      </div>
+      </div>
+  </div>
+</div>
+<?php } ?>
 
 <?php function dbClose() {
   # Close database connection.

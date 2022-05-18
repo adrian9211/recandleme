@@ -24,7 +24,8 @@ include('assets/includes/header.php');
             </div>
         </div>
     </div>
-
+</div>
+<div class="container-fluid" style="width:80%;">
     <div class="row mt-4">
         
         <?php 
@@ -35,12 +36,13 @@ include('assets/includes/header.php');
                 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                     if($row['stock'] > 0 && $row['visible'] != 0) {
                         
-                        echo '<div class="col shadow-sm m-1 pt-1 pb-2 d-flex flex-column">';
-                        echo '<div class="row fw-bold px-3">'.$row['item_name'].'</div>';
-                        echo '<div class="row"><img src="shop/'.$row['img_url'].'" alt="'.$row['item_desc'].'" style="width:5rem" class="shopImg" id="'.$row['item_id'].'" onclick="showModal(this);"></div>';
-                        echo '<div class="row px-1"><small>'.$row['item_desc'].'</small></div>';
-                        echo '<div class="row px-3 mb-4">Price: &pound;'.$row['item_price'].'</div>';
-                        echo '<div class="row mt-auto"><button onclick="location.href=\'shop.php?item='.$row['item_id'].'\'" class="btn btn-warning btn-sm">Add To Cart &#128722;</button></div>';
+                        echo '<div class="col-lg-2 shadow-sm m-1 pt-1 pb-2 d-flex flex-column">';
+                        echo '<div class="row"><img src="shop/'.$row['img_url'].'" alt="'.$row['item_desc'].'" style="width:100%" class="shopImg my-2" id="'.$row['item_id'].'" onclick="showModal(this);"></div>';
+                        echo '<div class="row fw-bold px-3 h5">'.$row['item_name'].'</div>';
+                        echo '<div class="row px-1 ms-2">'.$row['item_desc'].'</div>';
+                        # echo '<div class="row px-3 mb-4">Price: &pound;'.$row['item_price'].'</div>';
+                        echo '<select class="form-select form-select-sm mt-3"><option>Please choose a size</option><option>SMALL &pound;18.00</option><option>MEDIUM &pound;35.00</option><option>LARGE &pound;48.00</option></select>';
+                        echo '<div class="row mt-auto px-1 pt-1"><button onclick="location.href=\'shop.php?item='.$row['item_id'].'\'" class="btn btn-sm bgCustomBlue">Add To Cart</button></div>';
                         echo '</div>';                        
                     }
                 }
@@ -58,32 +60,44 @@ include('assets/includes/header.php');
                 if (mysqli_num_rows($r) == 1 )
                 {
                 $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
-
-                # Check if cart already contains one of this product id.
-                if ( isset( $_SESSION['cart'][$id] ) )
-                { 
-                    # Add one more of this product.
-                    $_SESSION['cart'][$id]['quantity']++; 
-                    if (!isset($_SESSION['items'])){
-                    $_SESSION['items'] = "1";  
-                    } else { 
-                    $_SESSION['items']++;
+                    if($row['stock'] > $_SESSION['cart'][$id]['quantity']){
+                    # Check if cart already contains one of this product id.
+                    if ( isset( $_SESSION['cart'][$id] ) )
+                    {                     
+                        # Add one more of this product.
+                        $_SESSION['cart'][$id]['quantity']++; 
+                        if (!isset($_SESSION['items'])){
+                        $_SESSION['items'] = "1";  
+                        } else { 
+                        $_SESSION['items']++;
+                        }
+                        # Close database connection.
+                        mysqli_close($dbc);
+                        echo '<script>location.href="shop.php";</script>';
+                    } 
+                    else
+                    {
+                        # Or add one of this product to the cart.
+                        $_SESSION['cart'][$id]= array ( 'quantity' => 1, 'price' => $row['item_price'] ) ;
+                        if (!isset($_SESSION['items'])){
+                        $_SESSION['items'] = "1";  
+                        } else { 
+                        $_SESSION['items']++;
+                        }
+                        # Close database connection.
+                        mysqli_close($dbc);
+                        echo '<script>location.href="shop.php";</script>';
                     }
-                } 
-                else
-                {
-                    # Or add one of this product to the cart.
-                    $_SESSION['cart'][$id]= array ( 'quantity' => 1, 'price' => $row['item_price'] ) ;
-                    if (!isset($_SESSION['items'])){
-                    $_SESSION['items'] = "1";  
-                    } else { 
-                    $_SESSION['items']++;
+                    }
+                    else 
+                    {
+                        confirmModal('Sorry there is not enough stock','shop.php?confirm=1','shop.php?confirm=0');
+                        
                     }
                 }
-                }
-
-                # Close database connection.
-                mysqli_close($dbc);
+            }
+            if(isset($_GET['confirm'])) {
+                echo '<script>location.href="shop.php";</script>';
             }
         ?>
 
@@ -131,3 +145,4 @@ include('assets/includes/header.php');
 # Include footer
 include('assets/includes/footer.php');
 ?>
+

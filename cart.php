@@ -62,7 +62,7 @@ if (!empty($_SESSION['cart']))
 
     # Display the row/s:
     echo "<div class='row mb-1'> <div class='col-lg-2 bg-light fw-bold'>{$row['item_name']}</div> <div class='col-lg-5 bg-light'>{$row['item_desc']}</div>
-    <div class='col-lg-3 bg-light'><input type=\"number\" name=\"qty[{$row['item_id']}]\" value=\"{$_SESSION['cart'][$row['item_id']]['quantity']}\" min=\"0\"></div>
+    <div class='col-lg-3 bg-light'><input type=\"number\" name=\"qty[{$row['item_id']}]\" value=\"{$_SESSION['cart'][$row['item_id']]['quantity']}\" min=\"0\" max=\"{$row['stock']}\" class=\"numInput\"></div>
     <div class='col-lg-1 bg-light'>@ {$row['item_price']} = </div> <div class='col-lg-1 bg-light'>".number_format ($subtotal, 2)."</div></div>";
   }
 
@@ -123,7 +123,23 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
   echo '<script>location.href="cart.php";</script>';
   }
   else if (isset($_POST['checkout'])) {
-    checkout($total);
+    $errors[] = "";
+    if (empty($_POST['name'])){ $errors[] = 'Name is required'; }
+    if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){ $errors[] = 'Valid Email address required'; }
+    if (empty($_POST['address']) ){ $errors[] = 'Address is required'; }
+    if (empty($_POST['Postcode']) || !preg_match("/^[A-Za-z]+[0-9]+[A-Za-z]?\s*[0-9]{1}[A-Za-z]{2}$/", $_POST['postcode'])){ $errors[] = 'Please enter a valid UK Postcode'; }
+    if (empty($errors)){
+      # Connect to the database.
+      require ('../db/dbaccess.php');
+      $name=mysqli_real_escape_string($dbc, trim($_POST['name']));
+      $email=mysqli_real_escape_string($dbc, trim($_POST['email']));
+      $address=mysqli_real_escape_string($dbc, trim($_POST['address']));
+      $postcode=mysqli_real_escape_string($dbc, trim($_POST['postcode']));
+      checkout($total);
+    }
+    else {
+      messageModal($errors);
+    }    
   }
 }
 

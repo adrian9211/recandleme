@@ -83,6 +83,7 @@ else { ?>
                 $_SESSION['admin'] = $row['admin'];
                 $_SESSION['active'] = $row['active'];
                 $_SESSION['user_name'] = $row['user_name'];
+                $_SESSION['first_name'] = $row['first_name'];
                 $_SESSION['email'] = $row['email'];
             }
             else {

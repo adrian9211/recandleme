@@ -49,20 +49,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $q = "select * from products where item_name ='$name'";
   $r = mysqli_query($dbc, $q);
   if(mysqli_num_rows($r) > 0) { echo '<script>alert("Item name already exists, please choose another");</script>'; echo '<script>location.href="adminproducts.php";</script>'; }
+
   $img = 'no-image.png';
-  if(isset($_POST["item_img"]) && $check = getimagesize($_FILES["item_img"]["tmp_name"])){
-    $filename = $_FILES['item_img']['name'];
-    $tempname = $_FILES['item_img']['tmp_name'];                     
-    $folder = "../shop/".$filename;
-    $folderlg = "../shop/lg/".$filename;
-    if (move_uploaded_file($tempname, $folder))
-    {
-      $img = $filename;                                            
-    }
-    if (copy($folder, $folderlg)) 
-    {
-      $img = $filename;
-    }   
+  if($_FILES['item_img']['size'] > 0) {
+    $check = getimagesize($_FILES["item_img"]["tmp_name"]); 
+    if($check !== false) {
+      $filename = basename($_FILES['item_img']['name']);
+      # $tempname = $_FILES['item_img']['tmp_name'];                     
+      $folder = "../shop/".$filename;
+      $folderlg = "../shop/lg/".$filename;
+      if (move_uploaded_file($_FILES['item_img']['tmp_name'], $folder))
+      {
+        $img = $filename;                                            
+      }
+      if (copy($folder, $folderlg)) 
+      {
+        $img = $filename;
+      }   
+  }
   }
   $desc = mysqli_real_escape_string($dbc, trim($_POST['desc']));
   $price = mysqli_real_escape_string($dbc, trim($_POST['price']));

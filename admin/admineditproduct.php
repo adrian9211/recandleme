@@ -64,30 +64,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     else { $visible = 1;} 
     
     if ($_FILES['img_url']['size'] == 0) {
-        $qu = "UPDATE products SET item_name = '".$_POST['name']."', item_desc = '".$_POST['desc']."', item_price = '".$_POST['price']."', visible = '".$visible."' WHERE item_id = '".$_POST['shop_id']."'";
+        $qu = "UPDATE products SET item_name = '".$_POST['name']."', item_desc = '".$_POST['desc']."', item_price = '".$_POST['price']."', visible = '".$visible."', stock = '".$_POST['stock']."' WHERE item_id = '".$_POST['shop_id']."'";
     }
-    else if($_FILES['img_url']['size'] != 0) {
+    else if($_FILES['img_url']['size'] > 0) {
+        echo '<script>alert("size > 0");</script>';
         $filename = $_FILES['img_url']['name'];
-        $tempname = $_FILES['img_url']['tmp_name'];                     
-        $folder = "shop/".$filename;
-        $folderlg = "shop/lg/".$filename;
+        $img = $filename;
+        # $tempname = $_FILES['img_url']['tmp_name'];                     
+        $folder = "../shop/".$filename;
+        $folderlg = "../shop/lg/".$filename;
         # Upload File
-        if (move_uploaded_file($tempname, $folder))
+        if (move_uploaded_file($_FILES['img_url']['tmp_name'], $folder))
         {
-            $img = $filename;                                                   
+            # echo '<script>alert("uploaded");</script>';                                         
         }
         else {
-            echo 'File Upload Failed';
+            # echo '<script>alert("not uploaded");</script>';
         }
         if (copy($folder, $folderlg)) {
-            $img = $filename;
-            $oldimg = "shop/".$_POST['old_img'];
-            $oldimg_lg = "shop/lg/".$_POST['old_img'];
-            unlink ($oldimg);
-            unlink ($oldimg_lg);
+            echo '<script>alert("lg img uploaded");</script>';
+            $oldimg = "../shop/".$_POST['old_img'];
+            $oldimg_lg = "../shop/lg/".$_POST['old_img'];
+            if($_POST['old_img'] != '../shop/no-image.png') {
+                unlink ($oldimg);
+                unlink ($oldimg_lg);
+                # echo '<script>alert("old img deleted");</script>';
+            }
         }  
         else { 
-            echo 'File copy to lg folder failed';
+            echo '<script>alert("Image uploaded!");</script>';
         }
         $qu = "UPDATE products SET item_name = '".$_POST['name']."', item_desc = '".$_POST['desc']."', img_url = '".$img."', item_price = '".$_POST['price']."', visible = '".$visible."', stock = '".$_POST['stock']."' WHERE item_id = '".$_POST['shop_id']."'";
     }
