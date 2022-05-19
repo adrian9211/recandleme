@@ -30,10 +30,10 @@ if (mysqli_num_rows($r) == 1) :?>
                 <span class="input-group-text">Replace</span>
                 <input type="file" name="img_url" class="form-control">
                 </div>
-                <div class="input-group mb-3 input-group-sm">
+                <!-- <div class="input-group mb-3 input-group-sm">
                 <span class="input-group-text">Price</span>
                 <input type="number" class="form-control" name="price" value="<?php echo $row['item_price'];?>" placeholder='0.00' step="0.01" min="0.00">
-                </div>
+                </div> -->
                 <div class="input-group input-group-sm mb-3">
                     <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show this product in the shop">
                         <label class="form-check-label">Visible</label>
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     else { $visible = 1;} 
     
     if ($_FILES['img_url']['size'] == 0) {
-        $qu = "UPDATE products SET item_name = '".$_POST['name']."', item_desc = '".$_POST['desc']."', item_price = '".$_POST['price']."', visible = '".$visible."', stock = '".$_POST['stock']."' WHERE item_id = '".$_POST['shop_id']."'";
+        $qu = "UPDATE products SET item_name = '".$_POST['name']."', item_desc = '".$_POST['desc']."', visible = '".$visible."', stock = '".$_POST['stock']."' WHERE item_id = '".$_POST['shop_id']."'";
     }
     else if($_FILES['img_url']['size'] > 0) {
         echo '<script>alert("size > 0");</script>';

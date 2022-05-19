@@ -73,8 +73,11 @@ if (!empty($_SESSION['cart']))
   echo ' <div class="row d-flex justify-content-end"><div class="col-lg-2 mt-2"><input type="submit" class="btn btn-warning btn-sm px-4 me-lg-5" id="update" name="update" value="UPDATE CART &#128722;"></div><div class= "col-lg-1 pt-1 mt-2 ms-lg-5 text-white bgCustomRed">Total = </div><div class="col-lg-1 mt-2 pe-1 pt-1 bgCustomRed text-white fw-bold" id="totes">'.number_format($total,2).'</div></div>';
   echo '</div></form>';
 
-  if (isset($_SESSION['first_name'])) {
-    $usersName = $_SESSION['first_name'].' '.$_SESSION['last_name'];
+  if (isset($_SESSION['first_name']) ) {
+    $usersName = $_SESSION['first_name'];
+    if (isset($_SESSION['last_name'])){
+      $usersName .= ' '.$_SESSION['last_name'];
+    }
     $usersEmail = $_SESSION['email'];
   }
   else {

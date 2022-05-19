@@ -17,10 +17,10 @@
                <span class="input-group-text">Image</span>
               <input type="file" name="item_img" class="form-control">
             </div>
-            <div class="input-group mb-3 input-group-sm">
+            <!-- <div class="input-group mb-3 input-group-sm">
                <span class="input-group-text">Price</span>
               <input type="number" class="form-control" name="price" <?php if(isset($_POST['price'])){ echo 'value="'.$_POST['price'].'"'; } else { echo 'value="0.00"'; } ?> placeholder='0.00' step="0.01" min="0.00">
-            </div>
+            </div> -->
             <div class="input-group input-group-sm mb-3">
                 <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show this product in the shop">
                     <label class="form-check-label">Visible</label>
@@ -72,7 +72,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $price = mysqli_real_escape_string($dbc, trim($_POST['price']));
   if(!isset($_POST['visible']) || is_null($_POST['visible'])) { $visible = 0; } else { $visible = 1; }
   $stock = intval(mysqli_real_escape_string($dbc, trim($_POST['stock'])));
-  $query = "insert into products (item_name, item_desc, img_url, item_price, visible, stock) values ('$name','$desc','$img','$price','$visible','$stock')";
+  $query = "insert into products (item_name, item_desc, img_url, visible, stock) values ('$name','$desc','$img','$visible','$stock')";
   if($result = mysqli_query($dbc, $query)){
     echo '<script>alert("Product added successfully!");</script>';
   }

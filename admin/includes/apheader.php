@@ -33,7 +33,7 @@ else if ($_SESSION['admin'] == 1) {
             <a class="w3-button" href="adminshop.php">Shop Management <i class="fa fa-caret-down"></i></a>
             <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
                 <a href="adminorders.php" class="w3-bar-item w3-button w3-mobile">Orders</a>
-                <a href="adminproducts.php" class="w3-bar-item w3-button w3-mobile">Add Products</a>
+                <a href="adminaddproduct.php" class="w3-bar-item w3-button w3-mobile">Add Product</a>
                 <a href="adminmanageproducts.php" class="w3-bar-item w3-button w3-mobile">Manage Products</a>
             </div>
         </div>

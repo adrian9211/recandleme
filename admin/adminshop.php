@@ -4,7 +4,7 @@
     <div class="w3-bar-block w3-light-blue">
         <div class="h5 ps-3 mt-1 pt-1 w3-blue">Shop Management</div>
         <a href="adminorders.php" class="w3-bar-item w3-button">Orders</a>
-        <a href="adminproducts.php" class="w3-bar-item w3-button">Add Products</a>
+        <a href="adminaddproduct.php" class="w3-bar-item w3-button">Add Product</a>
         <a href="adminmanageproducts.php" class="w3-bar-item w3-button">Manage Products</a>
     </div> 
 </div>

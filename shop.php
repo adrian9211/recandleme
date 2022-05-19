@@ -25,15 +25,18 @@ include('assets/includes/header.php');
         </div>
     </div>
 </div>
-<div class="container-fluid" style="width:80%;">
-    <div class="row mt-4">
+<div class="container-fluid" style="width:90%">
+    <div class="row mt-4 ms-5 ps-5">
         
         <?php 
             include('../db/dbaccess.php');
-            $query = "SELECT * FROM products";
-            $result = mysqli_query($dbc, $query);
-            if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $query = "SELECT * FROM ";
+
+
+            $query2 = "SELECT * FROM products";
+            $result2 = mysqli_query($dbc, $query2);
+            if (mysqli_num_rows($result2) > 0) {
+                while($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
                     if($row['stock'] > 0 && $row['visible'] != 0) {
                         
                         echo '<div class="col-lg-2 shadow-sm m-1 pt-1 pb-2 d-flex flex-column">';
@@ -41,8 +44,11 @@ include('assets/includes/header.php');
                         echo '<div class="row fw-bold px-3 h5">'.$row['item_name'].'</div>';
                         echo '<div class="row px-1 ms-2">'.$row['item_desc'].'</div>';
                         # echo '<div class="row px-3 mb-4">Price: &pound;'.$row['item_price'].'</div>';
-                        echo '<select class="form-select form-select-sm mt-3"><option>Please choose a size</option><option>SMALL &pound;18.00</option><option>MEDIUM &pound;35.00</option><option>LARGE &pound;48.00</option></select>';
-                        echo '<div class="row mt-auto px-1 pt-1"><button onclick="location.href=\'shop.php?item='.$row['item_id'].'\'" class="btn btn-sm bgCustomBlue">Add To Cart</button></div>';
+                        echo '<select class="form-select form-select-sm mt-auto">';
+                        echo '<option>Please choose a size</option>';
+                        echo '<option>SMALL &pound;18.00</option><option>MEDIUM &pound;35.00</option><option>LARGE &pound;48.00</option>';
+                        echo '</select>';
+                        echo '<div class="row px-1 pt-1"><button onclick="location.href=\'shop.php?item='.$row['item_id'].'\'" class="btn btn-sm bgCustomBlue">Add To Cart</button></div>';
                         echo '</div>';                        
                     }
                 }
@@ -101,6 +107,11 @@ include('assets/includes/header.php');
             }
         ?>
 
+    </div>
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <div class="h3 m-4 p-4">Want to create your own custom fragrance? <a href="custom.php" class="btn bgCustomBlue">Click Here</a></div>
+        </div>
     </div>
 
     <!--    Folllow Us-->
