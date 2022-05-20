@@ -37,7 +37,7 @@
                 <li class="nav-item ps-4 pe-4">
                     <a class="nav-link<?php if ($page_title=='Shop') { echo ' active" aria-current="true'; } echo '"'; ?> href="shop.php">Shop</a>
                 </li>
-                <?php if(isset($_SESSION['items']) && $_SESSION['items'] > 1) :?>
+                <?php if(isset($_SESSION['items']) && $_SESSION['items'] > 0) :?>
                 <li class="nav-item ps-4 pe-4">
                     <a class="nav-link" href="cart.php">Cart (<?php echo $_SESSION['items'];?>)</a>
                 </li>

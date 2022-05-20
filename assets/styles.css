@@ -1,8 +1,10 @@
 body {
     font-family: 'Outfit', sans-serif;
 }
+
 /*Navbar active */
-.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show>.nav-link {
     color: #F28663;
     font-weight: bolder;
 }
@@ -11,7 +13,8 @@ body {
 /*    color: #8F5441 !important;*/
 /*}*/
 
-.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .show>.nav-link {
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .show>.nav-link {
     color: #8F5441;
     font-weight: bold;
 }
@@ -52,15 +55,15 @@ body {
 /*    height:100px;*/
 /*}*/
 
-.headerImg{
+.headerImg {
     height: 300px;
     width: 100%;
     object-fit: cover;
 }
 
 .btn-info {
-background-color:    #2D4262;
-color: white;
+    background-color: #2D4262;
+    color: white;
     border-color: #2D4262;
 }
 
@@ -68,7 +71,7 @@ color: white;
     background-color: #1a3157;
     color: white;
     box-shadow: 5px 3px 10px 0px #000000;
-border-color: #1a3157;
+    border-color: #1a3157;
 }
 
 .btn-secondary {
@@ -85,7 +88,7 @@ border-color: #1a3157;
 }
 
 
-.header-text{
+.header-text {
     color: white;
     background-color: #2D4262;
     font-weight: normal;
@@ -109,9 +112,7 @@ border-color: #1a3157;
     color: #F5BE3B;
 }
 
-.containerHeader img {
-
-}
+.containerHeader img {}
 
 
 /* Centered text */
@@ -131,10 +132,11 @@ border-color: #1a3157;
     transform: translate(-50%, -50%);
 }
 
-h2  {
+h2 {
     font-weight: normal;
     color: #000000;
 }
+
 h3 {
     font-weight: lighter;
     color: #ffffff;
@@ -146,6 +148,7 @@ h3 {
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
 }
+
 .about {
     max-width: 600px;
 }
@@ -186,9 +189,10 @@ h4 {
 hr {
     border: 3px solid #8F5441;
     width: 50%;
-    margin:  0 auto 3rem;
+    margin: 0 auto 3rem;
 
 }
+
 /*Footer start*/
 footer {
     background-color: #2D4262;
@@ -207,6 +211,7 @@ footer a:link {
     text-decoration: none;
     font-weight: lighter;
 }
+
 /*Subscribe box*/
 .content {
     width: 300px;
@@ -222,7 +227,7 @@ footer a:link {
     height: 100%;
 }
 
-.subscription .add-email{
+.subscription .add-email {
     position: absolute;
     top: 0;
     left: 0;
@@ -248,7 +253,7 @@ footer a:link {
     background: #4ABEBB;
     color: #FFFFFF;
     transition: width .35s ease-in-out,
-    background .35s ease-in-out;
+        background .35s ease-in-out;
 }
 
 .subscription.done .submit-email {
@@ -266,7 +271,7 @@ footer a:link {
     text-align: center;
     line-height: 38px;
     transition: visibility .35s ease-in-out,
-    opacity .35s ease-in-out;
+        opacity .35s ease-in-out;
 }
 
 .subscription.done .submit-email .before-submit,
@@ -284,6 +289,7 @@ footer a:link {
     visibility: visible;
     opacity: 1;
 }
+
 /*Subscribe box*/
 
 /*Footer end*/
@@ -293,18 +299,20 @@ footer a:link {
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 500px) {
     .card-img-top {
-    width: 100%;
-    height: 55vw;
-    object-fit: cover;
-}}
+        width: 100%;
+        height: 55vw;
+        object-fit: cover;
+    }
+}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 500px) {
     .card-img-top {
-    width: 100%;
-    height: 35vw;
-    object-fit: cover;
-}}
+        width: 100%;
+        height: 35vw;
+        object-fit: cover;
+    }
+}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
@@ -337,16 +345,16 @@ footer a:link {
 /* Lukes additions (please move and edit as necessary) */
 .shop {
     overflow: auto;
-  }
-  
-  .shopImg {
+}
+
+.shopImg {
     cursor: pointer;
-  }
-  
-  .shopLink {
+}
+
+.shopLink {
     text-decoration: none;
-  }
-  
+}
+
 /* The Modal (background) */
 .shop-modal {
     display: none;
@@ -369,18 +377,18 @@ footer a:link {
     /* Fallback color */
     background-color: rgba(0, 0, 0, 0.9);
     /* Black w/ opacity */
-  }
-  
-  /* Modal Content (image) */
-  .shop-modal-content {
+}
+
+/* Modal Content (image) */
+.shop-modal-content {
     margin: auto;
     display: block;
     width: 80%;
     max-width: 700px;
-  }
-  
-  /* Caption of Modal Image */
-  #shopCaption {
+}
+
+/* Caption of Modal Image */
+#shopCaption {
     margin: auto;
     display: block;
     width: 80%;
@@ -389,38 +397,41 @@ footer a:link {
     color: #ccc;
     padding: 10px 0;
     height: 150px;
-  }
-  
-  /* Add Animation */
-  .shop-modal-content, #shopCaption {
+}
+
+/* Add Animation */
+.shop-modal-content,
+#shopCaption {
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
     animation-duration: 0.6s;
-  }
-  
-  @-webkit-keyframes zoom {
+}
+
+@-webkit-keyframes zoom {
     from {
-      -webkit-transform: scale(0);
+        -webkit-transform: scale(0);
     }
+
     to {
-      -webkit-transform: scale(1);
+        -webkit-transform: scale(1);
     }
-  }
-  
-  @keyframes zoom {
+}
+
+@keyframes zoom {
     from {
-      -webkit-transform: scale(0);
-              transform: scale(0);
+        -webkit-transform: scale(0);
+        transform: scale(0);
     }
+
     to {
-      -webkit-transform: scale(1);
-              transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
     }
-  }
-  
-  /* The Close Button */
-  .shop-close {
+}
+
+/* The Close Button */
+.shop-close {
     position: absolute;
     top: 15px;
     right: 35px;
@@ -429,26 +440,29 @@ footer a:link {
     font-weight: bold;
     -webkit-transition: 0.3s;
     transition: 0.3s;
-  }
-  
-  .shop-close:hover,
-  .shop-close:focus {
+}
+
+.shop-close:hover,
+.shop-close:focus {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
-  }
-  
-  /* 100% Image Width on Smaller Screens */
-  @media only screen and (max-width: 700px) {
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
     .modal-content {
-      width: 100%;
+        width: 100%;
     }
-  }
-  .bgCustomBlue{
+}
+
+.bgCustomBlue {
     color: white;
     background-color: #2D4262;
-  }
-  .bgCustomRed{
+}
+
+.bgCustomRed {
     background-color: #D09683;
-  }
-  /* End of Lukes additions */
+}
+
+/* End of Lukes additions */
