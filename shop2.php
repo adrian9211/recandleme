@@ -40,29 +40,28 @@ include('assets/includes/header.php');
         if (mysqli_num_rows($result2) > 0) {
             while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
                 if ($row['stock'] > 0 && $row['visible'] != 0) {
-
                     echo '<div class="col-lg-2 shadow-sm m-1 pt-1 pb-2 d-flex flex-column">';
+                    echo '<form method="POST" id="selectSize-' . $row['item_id'] . '" name="selectSize">';
+                    echo '<input type="hidden" class="sub" name="item_id" value="' . $row['item_id'] . '">';
                     echo '<div class="row"><img src="shop/' . $row['img_url'] . '" alt="' . strip_tags($row['item_desc']) . '" style="width:100%" class="shopImg my-2" id="' . $row['item_id'] . '" onclick="showModal(this);"></div>';
                     echo '<div class="row fw-bold px-3 h5">' . $row['item_name'] . '</div>';
                     echo '<div class="row px-1 ms-2">' . $row['item_desc'] . '</div>';
-                    echo '<form method="POST" id="selectSize-' . $row['item_id'] . '" name="selectSize">';
-                    echo '<select class="form-select form-select-sm mt-auto" name="' . $row['item_id'] . '-size" id="' . $row['item_id'] . '-size">';
+                    echo '<div class="row mt-auto"><select class="form-select form-select-sm mt-auto" name="' . $row['item_id'] . '-size" id="' . $row['item_id'] . '-size">';
                     echo '<option value="" disabled selected>Please choose a size</option>';
                     foreach ($size as $itemsize) {
                         echo '<option value="' . $itemsize . '">' . $itemsize . '</option>';
                     }
-                    echo '</select>';
-                    echo '<input type="submit" class="sub" name="sub"></form>';
-                    echo '<div class="row px-1 pt-1 mt-auto"><button onclick="location.href=\'shop.php?item=' . $row['item_id'] . '\'" class="btn btn-sm bgCustomBlue">Add To Cart</button></div>';
-                    echo '</div>';
+                    echo '</select></div>';
+                    echo '<div class="row px-1 pt-1 mt-auto"><input type="submit" name="addToCart" class="btn btn-sm bgCustomBlue" value="Add To Cart"></div>';
+                    echo '</form></div>';
                 }
             }
         } else {
             echo '<div class="h5 m-5 text-dark">There are currently no products in the shop</div>';
         }
-
-        if (isset($_GET['item'])) {
-            $id = $_GET['item'];
+        if (isset($_POST['addToCart'])) {
+            $id = $_POST['item_id'];
+            # echo '<script>alert("' . $id . '");</script>';
             require('../db/dbaccess.php');
             # Check product id against database 
             $q = "SELECT * FROM products WHERE item_id = $id";
@@ -72,25 +71,32 @@ include('assets/includes/header.php');
                 $tmpName = $id . '-size';
                 $tmpName2 = $_POST['$tmpName'];
                 if (($_POST[$tmpName]) == '') {
-                    confirmModal($tmpName2, 'shop.php?confirm=1', 'shop.php?confirm=0');
+                    confirmModal('Please select a size', 'shop.php?confirm=1', 'shop.php?confirm=0');
                     exit();
                 }
                 if ($row['stock'] > $_SESSION['cart'][$id]['quantity']) {
                     # Check if cart already contains one of this product id.
                     if (isset($_SESSION['cart'][$id])) {
                         # Add one more of this product.
-                        $_SESSION['cart'][$id]['quantity']++;
+                        $_SESSION['cart'][$id]['size']['quantity']++;
                         if (!isset($_SESSION['items'])) {
                             $_SESSION['items'] = "1";
                         } else {
                             $_SESSION['items']++;
                         }
+                        // if (!isset($_SESSION['price'])) {
+                        //     $_SESSION['price'] = floatval(number_format($_POST['tmpName']));
+                        // } else {
+                        //     $_SESSION['price'] += floatval(number_format($_POST['tmpName']));
+                        // }
                         # Close database connection.
                         mysqli_close($dbc);
                         echo '<script>location.href="shop.php";</script>';
                     } else {
+                        $sz = array();
+                        preg_match("/^[a-zA-Z]+\s/", $_POST[$tmpName], $sz);
                         # Or add one of this product to the cart.
-                        $_SESSION['cart'][$id] = array('quantity' => 1, 'price' => $row['item_price']);
+                        $_SESSION['cart'][$id] = array('quantity' => 1, 'size' => $sz[0], 'price' => floatval(number_format($_POST[$tmpName])));
                         if (!isset($_SESSION['items'])) {
                             $_SESSION['items'] = "1";
                         } else {
@@ -105,9 +111,7 @@ include('assets/includes/header.php');
                 }
             }
         }
-        if (isset($_GET['confirm'])) {
-            echo '<script>location.href="shop.php";</script>';
-        }
+
         ?>
 
     </div>

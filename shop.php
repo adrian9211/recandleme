@@ -76,20 +76,28 @@ include('assets/includes/header.php');
                 }
                 if ($row['stock'] > $_SESSION['cart'][$id]['quantity']) {
                     # Check if cart already contains one of this product id.
+
                     if (isset($_SESSION['cart'][$id])) {
                         # Add one more of this product.
-                        $_SESSION['cart'][$id]['quantity']++;
+                        $_SESSION['cart'][$id]['size']['quantity']++;
                         if (!isset($_SESSION['items'])) {
                             $_SESSION['items'] = "1";
                         } else {
                             $_SESSION['items']++;
                         }
+                        // if (!isset($_SESSION['price'])) {
+                        //     $_SESSION['price'] = floatval(number_format($_POST['tmpName']));
+                        // } else {
+                        //     $_SESSION['price'] += floatval(number_format($_POST['tmpName']));
+                        // }
                         # Close database connection.
                         mysqli_close($dbc);
                         echo '<script>location.href="shop.php";</script>';
                     } else {
+                        $sz = array();
+                        preg_match("/^[a-zA-Z]+\s/", $_POST[$tmpName], $sz);
                         # Or add one of this product to the cart.
-                        $_SESSION['cart'][$id] = array('quantity' => 1, 'price' => $row['item_price']);
+                        $_SESSION['cart'][$id] = array('quantity' => 1, 'size' => $sz[0], 'price' => floatval(number_format($_POST[$tmpName])));
                         if (!isset($_SESSION['items'])) {
                             $_SESSION['items'] = "1";
                         } else {
