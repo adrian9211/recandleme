@@ -23,7 +23,9 @@
   session_start();
   $a = "small £13.00";
   $b = array();
-  preg_match("/^[a-zA-Z]+\s/", $a, $b);
+  # preg_match("/^[a-zA-Z]+\s/", $a, $b);
+  preg_match("/[0-9\.]+$/", $a, $b);
+
 
   echo $b[0];
   echo '<br><br><br>';

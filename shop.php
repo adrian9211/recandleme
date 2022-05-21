@@ -69,17 +69,16 @@ include('assets/includes/header.php');
             if (mysqli_num_rows($r) == 1) {
                 $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
                 $tmpName = $id . '-size';
-                $tmpName2 = $_POST['$tmpName'];
                 if (($_POST[$tmpName]) == '') {
                     confirmModal('Please select a size', 'shop.php?confirm=1', 'shop.php?confirm=0');
                     exit();
                 }
-                if ($row['stock'] > $_SESSION['cart'][$id]['quantity']) {
-                    # Check if cart already contains one of this product id.
-
-                    if (isset($_SESSION['cart'][$id])) {
+                # Check if cart already contains one of this product id.
+                if (isset($_SESSION['cart'][$id])) {
+                    # check if there is enough stock 
+                    if ($row['stock'] > $_SESSION['cart'][$id]['quantity']) {
                         # Add one more of this product.
-                        $_SESSION['cart'][$id]['size']['quantity']++;
+                        $_SESSION['cart'][$id]['quantity']++;
                         if (!isset($_SESSION['items'])) {
                             $_SESSION['items'] = "1";
                         } else {
@@ -94,21 +93,23 @@ include('assets/includes/header.php');
                         mysqli_close($dbc);
                         echo '<script>location.href="shop.php";</script>';
                     } else {
-                        $sz = array();
-                        preg_match("/^[a-zA-Z]+\s/", $_POST[$tmpName], $sz);
-                        # Or add one of this product to the cart.
-                        $_SESSION['cart'][$id] = array('quantity' => 1, 'size' => $sz[0], 'price' => floatval(number_format($_POST[$tmpName])));
-                        if (!isset($_SESSION['items'])) {
-                            $_SESSION['items'] = "1";
-                        } else {
-                            $_SESSION['items']++;
-                        }
-                        # Close database connection.
-                        mysqli_close($dbc);
-                        echo '<script>location.href="shop.php";</script>';
+                        confirmModal('Sorry there is not enough stock', 'shop.php', 'shop.php');
                     }
                 } else {
-                    confirmModal('Sorry there is not enough stock', 'shop.php?confirm=1', 'shop.php?confirm=0');
+                    $sz = array();
+                    $prc = array();
+                    preg_match("/^[a-zA-Z]+\s/", $_POST[$tmpName], $sz);
+                    preg_match("/[0-9\.]+$/", $_POST[$tmpName], $prc);
+                    # Or add one of this product to the cart.
+                    $_SESSION['cart'][$id] = array('quantity' => 1, 'size' => $sz[0], 'price' => $prc[0]);
+                    if (!isset($_SESSION['items'])) {
+                        $_SESSION['items'] = "1";
+                    } else {
+                        $_SESSION['items']++;
+                    }
+                    # Close database connection.
+                    mysqli_close($dbc);
+                    echo '<script>location.href="shop.php";</script>';
                 }
             }
         }

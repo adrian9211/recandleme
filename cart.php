@@ -61,9 +61,9 @@ include('assets/includes/header.php');
           $total += $subtotal;
 
           # Display the row/s:
-          echo "<div class='row mb-1'> <div class='col-lg-2 bg-light fw-bold'>{$row['item_name']}</div> <div class='col-lg-5 bg-light'>{$row['item_desc']}</div>
-    <div class='col-lg-3 bg-light'><input type=\"number\" name=\"qty[{$row['item_id']}]\" value=\"{$_SESSION['cart'][$row['item_id']]['quantity']}\" min=\"0\" max=\"{$row['stock']}\" class=\"numInput\"></div>
-    <div class='col-lg-1 bg-light'>@ {$_SESSION['price']} = </div> <div class='col-lg-1 bg-light'>" . number_format($subtotal, 2) . "</div></div>";
+          echo "<div class='row mb-1'> <div class='col-lg-2 bg-light fw-bold'>{$row['item_name']}</div> <div class='col-lg-5 bg-light'>{$row['item_desc']}</div><div class='col-lg-2 bg-light'>{$_SESSION['cart'][$row['item_id']]['size']}</div>
+    <div class='col-lg-1 bg-light'><input type=\"number\" name=\"qty[{$row['item_id']}]\" value=\"{$_SESSION['cart'][$row['item_id']]['quantity']}\" min=\"0\" max=\"{$row['stock']}\" class=\"numInput\"></div>
+    <div class='col-lg-1 bg-light'>@ {$_SESSION['cart'][$row['item_id']]['price']} = </div> <div class='col-lg-1 bg-light'>" . number_format($subtotal, 2) . "</div></div>";
         }
 
         # Close the database connection.
