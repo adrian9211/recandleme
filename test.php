@@ -21,15 +21,16 @@
 
   <?php
   session_start();
-  $a = "small £13.00";
-  $b = array();
+  # $a = "small £13.00";
+  $a = 'eh111ab';
+  $b[] = '';
   # preg_match("/^[a-zA-Z]+\s/", $a, $b);
-  preg_match("/[0-9\.]+$/", $a, $b);
-
+  # preg_match("/[0-9\.]+$/", $a, $b);
+  preg_match("/^[A-Za-z]+[0-9]+[A-Za-z]?\s*[0-9]{1}[A-Za-z]{2}$/", $a, $b);
 
   echo $b[0];
   echo '<br><br><br>';
-  print_r($_SESSION);
+  # print_r($_SESSION);
   ?>
 
   <script>

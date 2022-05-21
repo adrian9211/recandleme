@@ -44,7 +44,6 @@ include('assets/includes/header.php');
       if (!empty($_SESSION['cart'])) {
         # Connect to the database.
         require('../db/dbaccess.php');
-
         # Retrieve all items in the cart from the 'shop' database table.
         $q = "SELECT * FROM products WHERE item_id IN (";
         foreach ($_SESSION['cart'] as $id => $value) {
@@ -61,9 +60,14 @@ include('assets/includes/header.php');
           $total += $subtotal;
 
           # Display the row/s:
-          echo "<div class='row mb-1'> <div class='col-lg-2 bg-light fw-bold'>{$row['item_name']}</div> <div class='col-lg-5 bg-light'>{$row['item_desc']}</div><div class='col-lg-2 bg-light'>{$_SESSION['cart'][$row['item_id']]['size']}</div>
-    <div class='col-lg-1 bg-light'><input type=\"number\" name=\"qty[{$row['item_id']}]\" value=\"{$_SESSION['cart'][$row['item_id']]['quantity']}\" min=\"0\" max=\"{$row['stock']}\" class=\"numInput\"></div>
-    <div class='col-lg-1 bg-light'>@ {$_SESSION['cart'][$row['item_id']]['price']} = </div> <div class='col-lg-1 bg-light'>" . number_format($subtotal, 2) . "</div></div>";
+          echo "<div class='row mb-1'> <div class='col-lg-2 bg-light fw-bold'>{$row['item_name']}</div> <div class='col-lg-5 bg-light'>{$row['item_desc']}</div><div class='col-lg-2 bg-light'>";
+          #{$_SESSION['cart'][$row['item_id']]['size']}
+          foreach ($_SESSION['cart'][$row['item_id']] as $arrayName => $value) {
+            if ($arrayName == 'size') {
+              echo $arrayName . ": " . $value . "<br>";
+            }
+          }
+          echo "</div><div class='col-lg-1 bg-light'><input type=\"number\" name=\"qty[{$row['item_id']}]\" value=\"{$_SESSION['cart'][$row['item_id']]['quantity']}\" min=\"0\" max=\"{$row['stock']}\" class=\"numInput\"></div><div class='col-lg-1 bg-light'>@ {$_SESSION['cart'][$row['item_id']]['price']} = </div> <div class='col-lg-1 bg-light'>" . number_format($subtotal, 2) . "</div></div>";
         }
 
         # Close the database connection.
@@ -73,22 +77,30 @@ include('assets/includes/header.php');
         echo ' <div class="row d-flex justify-content-end"><div class="col-lg-2 mt-2"><input type="submit" class="btn btn-warning btn-sm px-4 me-lg-5" id="update" name="update" value="UPDATE CART &#128722;"></div><div class= "col-lg-1 pt-1 mt-2 ms-lg-5 text-white bgCustomRed">Total = </div><div class="col-lg-1 mt-2 pe-1 pt-1 bgCustomRed text-white fw-bold" id="totes">' . number_format($total, 2) . '</div></div>';
         echo '</div></form>';
 
-        if (isset($_SESSION['first_name'])) {
+        if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['address']) && isset($_POST['postcode'])){
+          $usersName = $_POST['name'];
+          $usersEmail = $_POST['email'];
+          $usersAddress = $_POST['address'];
+          $usersPostcode = $_POST['postcode'];
+        }
+        else if (isset($_SESSION['first_name'])) {
           $usersName = $_SESSION['first_name'];
           if (isset($_SESSION['last_name'])) {
             $usersName .= ' ' . $_SESSION['last_name'];
           }
           $usersEmail = $_SESSION['email'];
+          $usersPostcode = '';
         } else {
           $usersName = "";
           $usersEmail = "";
+          $usersPostcode = "";
         }
         echo '<form action="" method="POST"><div class="container mb-5">';
         echo '<div class="row d-flex justify-content-end"><div class="col-lg-5 bgCustomBlue text-white fw-bold my-2">Your details</div></div>';
         echo '<div class="row d-flex justify-content-end"><div class="col-lg-1 bg-light pt-3"><label>Name</label></div><div class="col-lg-4 bg-light"><input type="text" class="form-control form-control-sm my-3" placeholder="" name="name" value="' . $usersName . '"></div></div>';
         echo '<div class="row d-flex justify-content-end"><div class="col-lg-1 bg-light pt-1"><label>Email</label></div><div class="col-lg-4 bg-light"><input type="text" class="form-control form-control-sm mb-3" placeholder="" name="email" value="' . $usersEmail . '"></div></div>';
         echo '<div class="row d-flex justify-content-end"><div class="col-lg-1 bg-light pt-1"><label>Address</label></div><div class="col-lg-4 bg-light"><textarea class="form-control mb-3" rows="5" id="address" name="address"></textarea></div></div>';
-        echo '<div class="row d-flex justify-content-end"><div class="col-lg-2 bg-light pt-1"><label>UK Postcode</label></div><div class="col-lg-3 bg-light"><input type="text" class="form-control form-control-sm mb-3" placeholder="" name="postcode"></div></div>';
+        echo '<div class="row d-flex justify-content-end"><div class="col-lg-2 bg-light pt-1"><label>UK Postcode</label></div><div class="col-lg-3 bg-light"><input type="text" class="form-control form-control-sm mb-3" name="postcode" value ="'.$usersPostcode.'"></div></div>';
 
         echo '<div class="row d-flex justify-content-end"><div class="col-lg-5 mt-2 mb-3 px-0"><div class="d-grid gap-2"><input type="submit" class="btn btn-warning btn-sm" id="checkout" name="checkout" value="CHECKOUT"></div></div></div><hr>';
 
@@ -130,18 +142,18 @@ include('assets/includes/header.php');
           }
           echo '<script>location.href="cart.php";</script>';
         } else if (isset($_POST['checkout'])) {
-          $errors[] = "";
+          $errors = "";
           if (empty($_POST['name'])) {
-            $errors[] = 'Name is required';
+            $errors .= 'Name is required<br>';
           }
           if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            $errors[] = 'Valid Email address required';
+            $errors .= 'Valid Email address required<br>';
           }
           if (empty($_POST['address'])) {
-            $errors[] = 'Address is required';
+            $errors .= 'Address is required<br>';
           }
-          if (empty($_POST['Postcode']) || !preg_match("/^[A-Za-z]+[0-9]+[A-Za-z]?\s*[0-9]{1}[A-Za-z]{2}$/", $_POST['postcode'])) {
-            $errors[] = 'Please enter a valid UK Postcode';
+          if (empty($_POST['postcode']) || !preg_match("/^[A-Za-z]+[0-9]+[A-Za-z]?\s?[0-9][A-Za-z]{2}$/", $_POST['postcode'])) {
+            $errors .= 'Please enter a valid UK Postcode<br>';
           }
           if (empty($errors)) {
             # Connect to the database.

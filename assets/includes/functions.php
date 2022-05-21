@@ -105,8 +105,43 @@ function contactFunction() {
 }
 
 function checkout($total) { ?>
+alert('<?php echo $total;?>');
 <script src="https://www.paypal.com/sdk/js?client-id=AR0N9j2pD1V1e9cnUU8zOFvOAJbZLS2zGASH1NrNVL8NloUSPydWK6ORZTCCHsL5NtkJVkSmCqTSDoF_&enable-funding=venmo&currency=GBP" data-sdk-integration-source="button-factory"></script>
-<script src="assets/includes/paypal-button.js"></script>
+<script>
+  function initPayPalButton() {
+  paypal.Buttons({
+    style: {
+      shape: 'rect',
+      color: 'gold',
+      layout: 'horizontal',
+      label: 'checkout',
+      tagline: true
+    },
+
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{"description":"RecandleME","amount":{"currency_code":"GBP","value":<?php echo $total; ?>}}]
+      });
+    },
+
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(orderData) {
+        
+        // Full available details
+        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+        alert("Thank you for your purchase! You will get your order confirmation shortly");
+        location.href="thank-you.php";
+      });
+    },
+
+    onError: function(err) {
+      console.log(err);
+    }
+  }).render('#paypal');
+}
+initPayPalButton();
+</script>
 <div class="modal" id="alertModal" style="display:block">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
