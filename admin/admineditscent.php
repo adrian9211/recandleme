@@ -5,7 +5,7 @@ include('includes/apheader.php');?>
 
 <?php
 include('../../db/dbaccess.php');
-$q = "SELECT * FROM products WHERE item_id = '". $_GET['id']."'";
+$q = "SELECT * FROM scents WHERE scent_id = '". $_GET['id']."'";
 $r = mysqli_query($dbc, $q);
 if (mysqli_num_rows($r) == 1) :?>
     <?php $row=mysqli_fetch_assoc($r); $old_img = $row['img_url'];?>
@@ -13,12 +13,20 @@ if (mysqli_num_rows($r) == 1) :?>
         <div class="row">
             <div class="col-xl-6 col-lg-8 col-md-10 mt-2">
                 <div class="input-group mb-3 input-group-sm">
-                <span class="input-group-text">Item Name</span>
-                <input type="text" class="form-control" name="name" value="<?php echo $row['item_name'];?>">
+                    <span class="input-group-text me-1">Item Type</span>
+                    <select class="form-select form-select-sm" name="type" id="type">
+                        <option value="1">Page 1</option>
+                        <option value="2">Page 2</option>
+                        <option value="3">Jar</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3 input-group-sm">
+                <span class="input-group-text">Scent Name</span>
+                <input type="text" class="form-control" name="name" value="<?php echo $row['scent_name'];?>">
                 </div>
                 <div class="input-group mb-3 input-group-sm">
                 <span class="input-group-text">Description</span>
-                <textarea name="desc" id="description" rows="3" class="form-control" maxlength="1000"><?php echo $row['item_desc'];?></textarea>
+                <textarea name="desc" id="description" rows="3" class="form-control" maxlength="1000"><?php echo $row['description'];?></textarea>
                 </div>
                 <div class="input-group mb-3 input-group-sm">
                 <span class="input-group-text">Current Image: </span> <label class="m-1 fst-italic"> <?php echo $row['img_url'];?></label>
@@ -35,10 +43,6 @@ if (mysqli_num_rows($r) == 1) :?>
                         <label class="form-check-label">Visible</label>
                         <input class="form-check-input" type="checkbox" id="visible" name="visible" <?php if($row['visible']){ echo 'checked'; }?>>
                     </div>
-                </div>
-                <div class="input-group mb-3 input-group-sm">
-                <span class="input-group-text">Stock</span>
-                <input type="number" class="form-control" min="0" name="stock" value="<?php echo $row['stock'];?>">
                 </div>
             </div>
             <input type="hidden" name="shop_id" value="<?php echo $_GET['id'];?>"><input type="hidden" name="old_img" value="<?php echo $old_img;?>">
@@ -60,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     else { $visible = 1;} 
     
     if ($_FILES['img_url']['size'] == 0) {
-        $qu = "UPDATE products SET item_name = '".$_POST['name']."', item_desc = '".$_POST['desc']."', visible = '".$visible."', stock = '".$_POST['stock']."' WHERE item_id = '".$_POST['shop_id']."'";
+        $qu = "UPDATE scents SET scent_type = '".$_POST['type']."', scent_name = '".$_POST['name']."', description = '".$_POST['desc']."', visible = '".$visible."', WHERE scent_id = '".$_POST['shop_id']."'";
     }
     else if($_FILES['img_url']['size'] > 0) {
         # echo '<script>alert("size > 0");</script>';
@@ -90,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         else { 
             echo '<script>alert("Image uploaded!");</script>';
         }
-        $qu = "UPDATE products SET item_name = '".$_POST['name']."', item_desc = '".$_POST['desc']."', img_url = '".$img."', visible = '".$visible."', stock = '".$_POST['stock']."' WHERE item_id = '".$_POST['shop_id']."'";
+        $qu = "UPDATE scents SET scent_type = '".$_POST['scent_type']. "', scent_name = '".$_POST['name']."', description = '".$_POST['desc']."', img_url = '".$img."', visible = '".$visible."' WHERE scent_id = '".$_POST['shop_id']."'";
     }
 
     $ar = mysqli_query($dbc, $qu);               
@@ -98,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     if ($ar)
     {
         echo '<script>alert("Item Updated!");</script>';
-        echo '<script>location.href="adminmanageproducts.php";</script>';
+        echo '<script>location.href="adminmanagescents.php";</script>';
     }
 
 } 

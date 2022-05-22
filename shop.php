@@ -46,13 +46,13 @@ include('assets/includes/header.php');
                     echo '<div class="row"><img src="shop/' . $row['img_url'] . '" alt="' . strip_tags($row['item_desc']) . '" style="width:100%" class="shopImg my-2" id="' . $row['item_id'] . '" onclick="showModal(this);"></div>';
                     echo '<div class="row fw-bold px-3 h5">' . $row['item_name'] . '</div>';
                     echo '<div class="row px-1 ms-2">' . $row['item_desc'] . '</div>';
-                    echo '<div class="row mt-auto"><select class="form-select form-select-sm mt-auto" name="' . $row['item_id'] . '-size" id="' . $row['item_id'] . '-size">';
+                    echo '<div class="row mt-auto px-1"><select class="form-select form-select-sm mt-auto" name="' . $row['item_id'] . '-size" id="' . $row['item_id'] . '-size">';
                     echo '<option value="" disabled selected>Please choose a size</option>';
                     foreach ($size as $itemsize) {
                         echo '<option value="' . $itemsize . '">' . $itemsize . '</option>';
                     }
                     echo '</select></div>';
-                    echo '<div class="row px-1 pt-1 mt-auto"><input type="submit" name="addToCart" class="btn btn-sm bgCustomBlue" value="Add To Cart"></div>';
+                    echo '<div class="row px-1 pt-1 mt-auto"><input type="submit" name="addToCart" class="btn btn-sm bgCustomBlue mt-auto" value="Add To Cart"></div>';
                     echo '</form></div>';
                 }
             }

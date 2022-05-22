@@ -104,8 +104,7 @@ function contactFunction() {
   }
 }
 
-function checkout($total) { ?>
-alert('<?php echo $total;?>');
+function checkout($total, $order) { ?>
 <script src="https://www.paypal.com/sdk/js?client-id=AR0N9j2pD1V1e9cnUU8zOFvOAJbZLS2zGASH1NrNVL8NloUSPydWK6ORZTCCHsL5NtkJVkSmCqTSDoF_&enable-funding=venmo&currency=GBP" data-sdk-integration-source="button-factory"></script>
 <script>
   function initPayPalButton() {
@@ -131,7 +130,7 @@ alert('<?php echo $total;?>');
         console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
 
         alert("Thank you for your purchase! You will get your order confirmation shortly");
-        location.href="thank-you.php";
+        location.href="thank-you.php?id=<?php echo $order; ?>";
       });
     },
 

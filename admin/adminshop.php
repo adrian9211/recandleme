@@ -6,6 +6,8 @@
         <a href="adminorders.php" class="w3-bar-item w3-button">Orders</a>
         <a href="adminaddproduct.php" class="w3-bar-item w3-button">Add Product</a>
         <a href="adminmanageproducts.php" class="w3-bar-item w3-button">Manage Products</a>
+        <a href="adminaddscent.php" class="w3-bar-item w3-button">Add Scent</a>
+        <a href="adminmanagescents.php" class="w3-bar-item w3-button">Manage Scents</a>
     </div> 
 </div>
 

@@ -1,9 +1,21 @@
 <?php
-unset ($_SESSION['items']);
 # Set page title
 $page_title = "Thank you";
 # Include header file
 include('assets/includes/header.php');
+?>
+
+<?php 
+    if(isset($_SESSION['cart'])) {
+        unset ($_SESSION['items']); 
+        unset($_SESSION['cart']); 
+        if(isset($_GET['id'])) {
+            echo '<script>location.href="thank-you.php?id="'.$_GET['id'].'";</script>';
+        }
+        else {
+            echo '';
+        }
+    } 
 ?>
 
 <!--Header section-->
@@ -27,10 +39,9 @@ include('assets/includes/header.php');
     </div>
     <div class="row">
         <div class="col d-flex justify-content-center">
-            <div class="h3 m-4 p-4">Thank you for your purchase. Your order details will be emailed to you shortly.</div>
+            <div class="h3 m-4 p-4">Thank you for your purchase. <?php if(isset($_GET['id'])) { echo "Your order number is ".$_GET['id']. ". "; } ?>Details will be emailed to you shortly.</div>
         </div>
     </div>
-
 
     <!--    Folllow Us-->
 

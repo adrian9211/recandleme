@@ -141,14 +141,16 @@ include('assets/includes/header.php');
             $_SESSION['items'] = $items;
           }
           echo '<script>location.href="cart.php";</script>';
-        } else if (isset($_POST['checkout'])) {
+        } 
+        else if (isset($_POST['checkout'])) 
+        {
           $errors = "";
           if (empty($_POST['name'])) {
             $errors .= 'Name is required<br>';
           }
-          if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            $errors .= 'Valid Email address required<br>';
-          }
+          // if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+          //   $errors .= 'Valid Email address required<br>';
+          // }
           if (empty($_POST['address'])) {
             $errors .= 'Address is required<br>';
           }
@@ -162,7 +164,69 @@ include('assets/includes/header.php');
             $email = mysqli_real_escape_string($dbc, trim($_POST['email']));
             $address = mysqli_real_escape_string($dbc, trim($_POST['address']));
             $postcode = mysqli_real_escape_string($dbc, trim($_POST['postcode']));
-            checkout($total);
+            if(isset($_SESSION['user_id'])) { $userID = $_SESSION['user_id']; } else { $userID = 0; }
+            # Store buyer and order total in 'orders' database table.
+            $q2 = "INSERT INTO orders (user_id, username, email, address, postcode, total, order_date, paid, posted ) VALUES ( '$userID', '$name', '$email', '$address', '$postcode', '$total', NOW(), 0, 0)";
+            $r2 = mysqli_query ($dbc, $q2);
+
+            # Retrieve current order number.
+            $order_id = mysqli_insert_id($dbc) ;
+
+              # Retrieve cart items from 'shop' database table.
+              $q2 = "SELECT * FROM products WHERE item_id IN (";
+              foreach ($_SESSION['cart'] as $id => $value) { $q2 .= $id . ','; }
+              $q2 = substr( $q2, 0, -1 ) . ') ORDER BY item_id ASC';
+              $r2 = mysqli_query ($dbc, $q2);
+
+              $itemsArray[] = "";
+              # Store order contents in 'order_contents' database table.
+              while ($row2 = mysqli_fetch_array ($r2, MYSQLI_ASSOC))
+              {
+                $item_name = $row2['item_name']." ".$_SESSION['cart'][$row2['item_id']]['size'];
+                $query = "INSERT INTO order_contents ( order_id, item_id, item_name, quantity, price )
+                VALUES ( $order_id, ".$row2['item_id'].", '".$item_name."', ".$_SESSION['cart'][$row2['item_id']]['quantity'].",".$_SESSION['cart'][$row2['item_id']]['price'].")" ;
+                $itemsArray[] = $item_name. ' ' .$_SESSION['cart'][$row2['item_id']]['quantity']." ".$_SESSION['cart'][$row2['item_id']]['price'];
+                $result = mysqli_query($dbc,$query);
+              }
+
+              $q3 = "SELECT email_validation, admin_email from settings where id=1";
+              $r3 = mysqli_query($dbc, $q3);
+              $row3 = mysqli_fetch_assoc($r3);
+              $admin_email = $row3['admin_email'];
+              $to = "$email";
+              $subject = "Thank you for your order at RecandleME";
+              $message = "
+              <html>
+              <head>
+              <title>Order details</title>\r\n
+              </head>
+              <body>
+              <p>Thank you for your purchase at RecandleMe!</p>\r\n
+              <p>Order id: $order_id<p>\r\n
+              <p>Order contents</p>\r\n";
+              foreach($itemsArray as $item) {
+                $message .= "<p>$item</p>\r\n";
+              }
+              $message .= "
+              <p>Total: $total<p>\r\n
+              <p>Please note this is not a sales receipt</p>\r\n
+              <p>Kind regards</p>\r\n
+              <p>RecandleME</p>\r\n
+              </body>
+              </html>
+              ";
+          
+              // Always set content-type when sending HTML email
+              $headers = "MIME-Version: 1.0" . "\r\n";
+              $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+          
+              // More headers
+              $headers .= "From: <$admin_email>" . "\r\n";
+              # $headers .= 'Cc: myboss@example.com' . "\r\n";
+          
+              mail($to,$subject,$message,$headers);
+            
+            checkout($total, $order_id);
           } else {
             messageModal($errors);
           }
