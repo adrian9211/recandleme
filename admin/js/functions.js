@@ -52,10 +52,10 @@ function userAdmin(user, id, admin) {
     }
 }
 
-function adminEmail(email) {
-    var msg = "Are you sure you want to change the sites email address to " + email + "?\n This will only affect new emails, existing emails will have to be \nforwarded manually to the new address.";
+function adminSettings() {
+    var msg = "Are you sure you want to change your site settings?";
     if(confirm(msg) == true) {
-        location.href="adminsettings.php?webmail=" + email;
+        return;
     }
     else {
         location.href="adminsettings.php";

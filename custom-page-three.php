@@ -62,11 +62,11 @@ include('assets/includes/header.php');
                 # Add selection to the cart.
                 $_SESSION['cust'][3] = $row['scent_name'];
                 # Get custom price
-                $q2 = "SELECT price from sizes where size_type = 'cc'";
+                $q2 = "SELECT custom_price from settings where id = 1";
                 $r2 = $dbc->query($q2);
                 $row2 = $r2->fetch_assoc();
                 # Add one of this product to the cart.
-                $_SESSION['cart'][31] = array('quantity' => 1, 'size' => 'Custom', 'price' => $row2['price']);
+                $_SESSION['cart'][31] = array('quantity' => 1, 'size' => 'Custom', 'price' => $row2['custom_price']);
                 if (!isset($_SESSION['items'])) {
                     $_SESSION['items'] = "1";
                 } else {
@@ -74,17 +74,12 @@ include('assets/includes/header.php');
                 }
                 # Close database connection.
                 mysqli_close($dbc);
+                echo '<script>location.href="cart.php";</script>';
             }
         }
 
         ?>
 
-    </div>
-
-    <div class="row">
-        <div class="col d-flex justify-content-center">
-            <div class="h3 m-4 p-4">Ready to Checkout? <a href="cart.php" class="btn bgCustomBlue">Cart</a></div>
-        </div>
     </div>
 
     <!--    Folllow Us-->
