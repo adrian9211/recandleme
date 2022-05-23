@@ -119,7 +119,7 @@ include('assets/includes/header.php');
     </div>
     <div class="row">
         <div class="col d-flex justify-content-center">
-            <div class="h3 m-4 p-4">Want to create your own custom fragrance? <a href="custom.php" class="btn bgCustomBlue">Click Here</a></div>
+            <div class="h3 m-4 p-4">Want to create your own custom fragrance? <a href="custom-page-one.php" class="btn bgCustomBlue">Click Here</a></div>
         </div>
     </div>
 

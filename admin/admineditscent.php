@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     else { $visible = 1;} 
     
     if ($_FILES['img_url']['size'] == 0) {
-        $qu = "UPDATE scents SET scent_type = '".$_POST['type']."', scent_name = '".$_POST['name']."', description = '".$_POST['desc']."', visible = '".$visible."', WHERE scent_id = '".$_POST['shop_id']."'";
+        $qu = "UPDATE scents SET scent_type = '".$_POST['type']."', scent_name = '".$_POST['name']."', description = '".$_POST['desc']."', visible = '".$visible."' WHERE scent_id = '".$_POST['shop_id']."'";
     }
     else if($_FILES['img_url']['size'] > 0) {
         # echo '<script>alert("size > 0");</script>';
@@ -94,6 +94,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         else { 
             echo '<script>alert("Image uploaded!");</script>';
         }
+        if (!isset($_POST['visible']) || is_null($_POST['visible'])) { $visible = 0;} 
+        else { $visible = 1;} 
         $qu = "UPDATE scents SET scent_type = '".$_POST['scent_type']. "', scent_name = '".$_POST['name']."', description = '".$_POST['desc']."', img_url = '".$img."', visible = '".$visible."' WHERE scent_id = '".$_POST['shop_id']."'";
     }
 

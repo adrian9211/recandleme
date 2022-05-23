@@ -60,7 +60,15 @@ include('assets/includes/header.php');
           $total += $subtotal;
 
           # Display the row/s:
-          echo "<div class='row mb-1'> <div class='col-lg-2 bg-light fw-bold'>{$row['item_name']}</div> <div class='col-lg-5 bg-light'>{$row['item_desc']}</div><div class='col-lg-2 bg-light'>";
+          echo "<div class='row mb-1'> <div class='col-lg-2 bg-light fw-bold'>{$row['item_name']}</div> <div class='col-lg-5 bg-light'>";
+          if(isset($_SESSION['cust'])) {
+            echo $_SESSION['cust'][1].', '.$_SESSION['cust'][2].', '.$_SESSION['cust'][3];
+          }
+          else {
+            echo $row['item_desc'];
+          }
+          echo "</div><div class='col-lg-2 bg-light'>";
+
           #{$_SESSION['cart'][$row['item_id']]['size']}
           foreach ($_SESSION['cart'][$row['item_id']] as $arrayName => $value) {
             if ($arrayName == 'size') {

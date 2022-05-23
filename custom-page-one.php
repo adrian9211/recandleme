@@ -30,7 +30,7 @@ include('assets/includes/header.php');
 
         <?php
         include('../db/dbaccess.php');
-        $query = "SELECT * FROM scents";
+        $query = "SELECT * FROM scents WHERE scent_type = 1";
         $result = mysqli_query($dbc, $query);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
@@ -42,7 +42,7 @@ include('assets/includes/header.php');
                     echo '<div class="row fw-bold px-3 h5">' . $row['scent_name'] . '</div>';
                     echo '<div class="row px-1 ms-2">' . $row['description'] . '</div>';
                     
-                    echo '<div class="row px-1 pt-1 mt-auto"><input type="submit" name="addToCart" class="btn btn-sm bgCustomBlue mt-auto" value="Add To Cart"></div>';
+                    echo '<div class="row px-1 pt-1 mt-auto"><input type="submit" name="addToCart" class="btn btn-sm bgCustomRed mt-auto" value="Select"></div>';
                     echo '</form></div>';
                 }
             }
@@ -54,63 +54,20 @@ include('assets/includes/header.php');
             # echo '<script>alert("' . $id . '");</script>';
             require('../db/dbaccess.php');
             # Check product id against database 
-            $q = "SELECT * FROM products WHERE item_id = $id";
+            $q = "SELECT * FROM scents WHERE scent_id = $id";
             $r = mysqli_query($dbc, $q);
             if (mysqli_num_rows($r) == 1) {
                 $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
-                $tmpName = $id . '-size';
-                if (($_POST[$tmpName]) == '') {
-                    confirmModal('Please select a size', 'shop.php?confirm=1', 'shop.php?confirm=0');
-                    exit();
-                }
-                # Check if cart already contains one of this product id.
-                if (isset($_SESSION['cart'][$id])) {
-                    # check if there is enough stock 
-                    if ($row['stock'] > $_SESSION['cart'][$id]['quantity']) {
-                        # Add one more of this product.
-                        $_SESSION['cart'][$id]['quantity']++;
-                        if (!isset($_SESSION['items'])) {
-                            $_SESSION['items'] = "1";
-                        } else {
-                            $_SESSION['items']++;
-                        }
-                        // if (!isset($_SESSION['price'])) {
-                        //     $_SESSION['price'] = floatval(number_format($_POST['tmpName']));
-                        // } else {
-                        //     $_SESSION['price'] += floatval(number_format($_POST['tmpName']));
-                        // }
-                        # Close database connection.
-                        mysqli_close($dbc);
-                        echo '<script>location.href="shop.php";</script>';
-                    } else {
-                        confirmModal('Sorry there is not enough stock', 'shop.php', 'shop.php');
-                    }
-                } else {
-                    $sz = array();
-                    $prc = array();
-                    preg_match("/^[a-zA-Z]+\s/", $_POST[$tmpName], $sz);
-                    preg_match("/[0-9\.]+$/", $_POST[$tmpName], $prc);
-                    # Or add one of this product to the cart.
-                    $_SESSION['cart'][$id] = array('quantity' => 1, 'size' => $sz[0], 'price' => $prc[0]);
-                    if (!isset($_SESSION['items'])) {
-                        $_SESSION['items'] = "1";
-                    } else {
-                        $_SESSION['items']++;
-                    }
-                    # Close database connection.
-                    mysqli_close($dbc);
-                    echo '<script>location.href="shop.php";</script>';
-                }
+                # Add one of this product to the cart.
+                $_SESSION['cust'][1] = $row['scent_name'];
+                # Close database connection.
+                mysqli_close($dbc);
+                echo '<script>location.href="custom-page-two.php";</script>';
             }
         }
 
         ?>
 
-    </div>
-    <div class="row">
-        <div class="col d-flex justify-content-center">
-            <div class="h3 m-4 p-4">Want to select a ready made candle? <a href="shop.php" class="btn bgCustomBlue">Click Here</a></div>
-        </div>
     </div>
 
     <!--    Folllow Us-->

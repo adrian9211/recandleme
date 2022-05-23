@@ -37,7 +37,7 @@ if (mysqli_num_rows($result) > 0) :?>
 <?php endif; 
 if(mysqli_num_rows($result) < 1)
 {
-    echo '<p>There are no products to display</p>';
+    echo '<p>There are no orders to display</p>';
 }
 ?>
 
