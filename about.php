@@ -15,7 +15,7 @@ include('assets/includes/header.php');
         </div>
         <div class="col-xl-10 col-sm-10">
             <div class="header-text">
-                <h1 class="text-center">ABOUT PAGE</h1>
+                <h1 class="text-center">ABOUT US</h1>
             </div>
         </div>
         <div class="col-xl-1 col-sm-1">
