@@ -33,25 +33,6 @@ body {
     border-radius: 5px;
 }
 
-
-
-/*.navbar-nav {*/
-/*    width: 100%;*/
-/*    margin: 0 auto;*/
-/*}*/
-
-/*.nav-item {*/
-/*    padding-left: 65px;*/
-/*    padding-right: 65px;*/
-/*}*/
-
-/*.headerLogo {*/
-/*    padding-top: 200px;*/
-/*    margin-top: 200px;*/
-/*    width:400px;*/
-/*    height:100px;*/
-/*}*/
-
 .headerImg{
     height: 300px;
     width: 100%;
@@ -162,6 +143,10 @@ h3 {
     color: #D09683;
 }
 
+.bi:hover {
+    text-shadow: 0 0 10px black;
+}
+
 .bi-star-fill {
     font-size: 1.5rem;
     color: #D0DC46;
@@ -169,7 +154,7 @@ h3 {
 
 .reviewsImg {
     width: 80% !important;
-    height: 60% !important;
+    height: 50% !important;
     object-fit: cover;
     border-radius: 50%;
 }
@@ -177,7 +162,6 @@ h3 {
 .card {
     border: none;
 }
-
 h4 {
     font-weight: normal;
     color: #8F5441;

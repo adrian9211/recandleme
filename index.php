@@ -1,8 +1,8 @@
-<?php 
+<?php
 # Set page title
 $page_title = "RecandleMe";
 # Include header file
-include('assets/includes/header.php'); 
+include('assets/includes/header.php');
 ?>
 
 <!--Header section-->
@@ -101,8 +101,9 @@ include('assets/includes/header.php');
         <div class="col-12 mt-4">
             <h3 class="text-center p-2 h3_section">Our Principales</h3>
             <section class="text-center p-5 whyUsSection">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias amet aspernatur, consectetur consequatur cum dicta eius magnam nemo nesciunt nihil omnis quisquam quod rem sit sunt tenetur totam voluptatem?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad, esse labore odit sunt temporibus. Ad commodi dolorum error, nulla optio porro quidem ratione sit, sunt tempora velit voluptates, voluptatibus.
+            We strive to engage in environmentally conscious practises.
+            Whether it's challenging the status quo in sourcing ingredients or in product packaging,
+            we look for ways to reduce waste and make a positive impact on the environment.
             </section>
         </div>
     </div>
@@ -144,7 +145,11 @@ include('assets/includes/header.php');
             <div class="card " style="width: 18rem; background-color: #F5EBE4;">
                 <img src="assets/images/selfie/dan.jpg" class="card-img-top reviewsImg mx-auto d-block pt-2" alt="more durability">
                 <div class="card-body">
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p class="card-text">“I've purchased all three candles and they are lovely…
+                    Sweet Serenity is my favourite cant wait to try your new fragrances. I recommend it to all the undecided customers.”
+                        <br>
+                        <br>
+                                         -Anna C, Edinburgh</p>
                 </div>
                 <div>
                     <i class="bi bi-star-fill"></i>
@@ -160,7 +165,11 @@ include('assets/includes/header.php');
             <div class="card" style="width: 18rem; background-color: #F5EBE4;">
                 <img src="assets/images/selfie/andre-tan.jpg" class="card-img-top reviewsImg mx-auto d-block pt-2" alt="organic">
                 <div class="card-body">
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p class="card-text">“I was feeling a bit under the weather and my friend surprised me with one of your
+                     lovely refresh and revive candles. It smells delicious. I will highly recomend.”
+                        <br>
+                        <br>
+                                         -Jonh D, Glasgow</p>
                 </div>
                 <div>
                     <i class="bi bi-star-fill"></i>
@@ -176,7 +185,10 @@ include('assets/includes/header.php');
             <div class="card " style="width: 18rem; background-color: #F5EBE4;">
                 <img src="assets/images/selfie/austin-wade.jpg" class="reviewsImg mx-auto d-block pt-2" alt="personal scent">
                 <div class="card-body">
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p class="card-text">"Loved the 'Relax & Unwind' candle I ordered recently.
+                     It came really quickly and had useful instructions on how to get the most out of the candle (don't light without reading first!).
+                      " <br> <br>
+                                         -Alan S, East London</p>
                 </div>
                 <div>
                     <i class="bi bi-star-fill"></i>
@@ -258,7 +270,7 @@ include('assets/includes/header.php');
 
     <div class="row justify-content-md-center text-center mb-4">
         <div class="col-md-auto mt-1">
-            <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook "></i></a>
         </div>
         <div class="col-md-auto mt-1">
             <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
@@ -275,5 +287,5 @@ include('assets/includes/header.php');
 
 <?php
 # Include footer
-include('assets/includes/footer.php'); 
+include('assets/includes/footer.php');
 ?>
