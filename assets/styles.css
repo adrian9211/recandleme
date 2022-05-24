@@ -31,6 +31,7 @@ body {
     border-radius: 5px;
 }
 
+<<<<<<< HEAD
 /*.headerImgBackground {*/
 /*    background-image: url("/assets/images/luma-candles-K1Xi_R_mfpk-unsplash.jpg");*/
 /*    background-repeat:no-repeat;*/
@@ -39,6 +40,33 @@ body {
 /*}*/
 
 .headerImg {
+=======
+/*<<<<<<< HEAD*/
+/*.headerImg{*/
+/*=======*/
+
+
+/*.navbar-nav {*/
+/*    width: 100%;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*.nav-item {*/
+/*    padding-left: 65px;*/
+/*    padding-right: 65px;*/
+/*}*/
+
+/*.headerLogo {*/
+/*    padding-top: 200px;*/
+/*    margin-top: 200px;*/
+/*    width:400px;*/
+/*    height:100px;*/
+/*}*/
+
+.headerImg {
+>>>>>>> f79971eddb69db30a3f1e44b8989e6005156df24
+    height: 300px;
+>>>>>>> 363b3b0c9456b312d4d8c2a5898a687764c6a7b9
     width: 100%;
     height: 300px;
     object-fit: cover;
