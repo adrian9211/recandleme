@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             # echo '<script>alert("not uploaded");</script>';
         }
         if (copy($folder, $folderlg)) {
-            echo '<script>alert("lg img uploaded");</script>';
+            # echo '<script>alert("lg img uploaded");</script>';
             $oldimg = "../shop/".$_POST['old_img'];
             $oldimg_lg = "../shop/lg/".$_POST['old_img'];
             if($_POST['old_img'] != '../shop/no-image.png') {
