@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 <head>
     <meta charset="UTF-8">
@@ -18,7 +18,7 @@
 
     <title><?php echo $page_title; ?></title>
 </head>
-<body>
+<body class="d-flex flex-column h-100">
 <!--Navbar section-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5" id="navbar">
     <div class="container-fluid">
@@ -32,22 +32,27 @@
             <ul class="navbar-nav text-center ">
                 <li class="nav-item ps-4 pe-4">
                     <!-- If the page title is 'RecandleMe', set this link as active class, and aria-current as true -->
-                    <a class="nav-link<?php if ($page_title='RecandleMe') { echo ' active" aria-current="true'; } echo '"'; ?> href="index.php">Home</a>
+                    <a class="nav-link<?php if ($page_title=='RecandleMe') { echo ' active" aria-current="true'; } echo '"'; ?> href="index.php">Home</a>
                 </li>
                 <li class="nav-item ps-4 pe-4">
-                    <a class="nav-link<?php if ($page_title='Shop') { echo ' active" aria-current="true'; } echo '"'; ?> href="shop.php">Shop</a>
+                    <a class="nav-link<?php if ($page_title=='Shop') { echo ' active" aria-current="true'; } echo '"'; ?> href="shop.php">Shop</a>
+                </li>
+                <?php if(isset($_SESSION['items']) && $_SESSION['items'] > 0) :?>
+                <li class="nav-item ps-4 pe-4">
+                    <a class="nav-link" href="cart.php">Cart (<?php echo $_SESSION['items'];?>)</a>
+                </li>
+                <?php endif;?>
+                <li class="nav-item ps-4 pe-4">
+                    <a class="nav-link<?php if ($page_title=='About Us') { echo ' active" aria-current="true'; } echo '"'; ?> href="about.php">About Us</a>
                 </li>
                 <li class="nav-item ps-4 pe-4">
-                    <a class="nav-link<?php if ($page_title='About Us') { echo ' active" aria-current="true'; } echo '"'; ?> href="about.php">About Us</a>
+                    <a class="nav-link<?php if ($page_title=='Contact') { echo ' active" aria-current="true'; } echo '"'; ?> href="contact.php">Contact</a>
                 </li>
                 <li class="nav-item ps-4 pe-4">
-                    <a class="nav-link<?php if ($page_title='Contact') { echo ' active" aria-current="true'; } echo '"'; ?> href="contact.php">Contact</a>
+                    <a class="nav-link<?php if ($page_title=='Blog') { echo ' active" aria-current="true'; } echo '"'; ?> href="blog.php">Blog</a>
                 </li>
                 <li class="nav-item ps-4 pe-4">
-                    <a class="nav-link<?php if ($page_title='Blog') { echo ' active" aria-current="true'; } echo '"'; ?> href="blog.php">Blog</a>
-                </li>
-                <li class="nav-item ps-4 pe-4">
-                    <a class="nav-link<?php if ($page_title='More') { echo ' active" aria-current="true'; } echo '"'; ?> href="sustainability.php">Sustainability</a>
+                    <a class="nav-link<?php if ($page_title=='More') { echo ' active" aria-current="true'; } echo '"'; ?> href="sustainability.php">Sustainability</a>
                 </li>
             </ul>
             <button class="btn btn btn-info text-center" type="button" data-bs-toggle="modal" data-bs-target="<?php if (isset($_SESSION['user_id'])){ echo '#logoutModal'; } else { echo '#loginModal'; } ?>"><?php if (isset($_SESSION['user_id'])) { echo 'Logout'; } else { echo 'Login'; } ?></button>
@@ -58,7 +63,7 @@
     </div>
 </nav>
 <!--Navbar section-->
-
+<?php include('assets/includes/functions.php'); ?>
 <?php include('assets/includes/login.php'); ?>
 <?php include('assets/includes/register.php'); ?>
 
