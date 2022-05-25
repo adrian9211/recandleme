@@ -25,8 +25,8 @@ include('assets/includes/header.php');
         </div>
     </div>
 </div>
-<div class="container-fluid" style="width:90%">
-    <div class="row mt-4 ms-5 ps-5">
+<div class="container-fluid mb-5" style="width:90%">
+    <div class="row mt-4 ms-5 ps-5 mb-5">
 
         <?php
         include('../db/dbaccess.php');
@@ -66,7 +66,7 @@ include('assets/includes/header.php');
                 $r2 = $dbc->query($q2);
                 $row2 = $r2->fetch_assoc();
                 # Add one of this product to the cart.
-                $_SESSION['cart'][31] = array('quantity' => 1, 'size' => 'Custom', 'price' => $row2['custom_price']);
+                $_SESSION['cart'][22] = array('quantity' => 1, 'size' => 'Custom', 'price' => $row2['custom_price']);
                 if (!isset($_SESSION['items'])) {
                     $_SESSION['items'] = "1";
                 } else {
