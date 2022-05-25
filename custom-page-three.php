@@ -35,7 +35,7 @@ include('assets/includes/header.php');
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                 if ($row['visible'] != 0) {
-                    echo '<div class="col-lg-2 shadow-sm m-1 pt-1 pb-2 d-flex flex-column">';
+                    echo '<div class="col-lg-3 shadow-sm m-1 pt-1 pb-2 d-flex flex-column">';
                     echo '<form method="POST" id="selectItem-' . $row['scent_id'] . '" name="selectItem">';
                     echo '<input type="hidden" class="sub" name="item_id" value="' . $row['scent_id'] . '">';
                     echo '<div class="row"><img src="shop/' . $row['img_url'] . '" alt="' . strip_tags($row['description']) . '" style="width:100%" class="shopImg my-2" id="' . $row['scent_id'] . '" onclick="showModal(this);"></div>';
