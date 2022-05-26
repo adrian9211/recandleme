@@ -4,43 +4,35 @@ $page_title = "RecandleMe";
 # Include header file
 include('assets/includes/header.php');
 ?>
-791
 <!--Header section-->
-
-<div class="container">
+<div class="home">
+<!--    <h2 class="text-center d-flex align-items-center justify-content-center">Contact</h2>-->
     <div class="row">
-        <div class="col-xl-1 col-sm-1">
-            <div class="header-text-left ms-xl-4 me-xl-4 ms-sm-0 me-sm-0">
-            </div>
-        </div>
-        <div class="col-xl-10 col-sm-10">
-            <div class="header-text">
-                <h1 class="text-center">CREATE AND PERSONALISE YOUR CANDLE</h1>
-            </div>
-        </div>
-        <div class="col-xl-1 col-sm-1">
-            <div class="header-text-right ms-xl-4 me-xl-4 ms-sm-0 me-sm-0">
-
-            </div>
-        </div>
+        <h1 class="text-center">CREATE AND PERSONALISE YOUR CANDLE</h1>
     </div>
+    <div class="container">
     <div class="row">
-        <div class="col-12 m-xl-5 m-sm-1">
+        <div class="col-12 m-xl-5 m-sm-1 header-text-home">
             <h2>Choose between more than 10 fragrances</h2>
-            <button class="btn btn btn-secondary mt-3" type="submit">Shop now</button>
+            <a href="shop.php">
+                <button class="btn btn btn-secondary mt-3" type="submit">Shop now</button>
+            </a>
         </div>
     </div>
+    </div>
+</div>
+<div class="container">
     <div class="row">
         <div class="col-12 mt-4 ">
              <img src="assets/images/luma-candles-K1Xi_R_mfpk-unsplash.jpg" class="headerImg" alt="head img">
-            <section class="text-center p-5 whyUsSection"><b>
-Welcome to the homepage of Recandleme Aromas<b>, an organic wax candle manufacture made right
-here in the UK. Each of our premium scented candles has been carefully crafted with a designer
+            <p class="text-center p-5 whyUsSection">
+            <b>Welcome to the homepage of Recandleme Aromas<b>, an organic wax candle manufacture made right
+here in the UK. <br> Each of our premium scented candles has been carefully crafted with a designer
  fragrance to create a wonderful aroma for any room. We've developed these unique, individual
  candle creations from scratch using only natural ingredients. So you can enjoy many scent combinations
   to suit your special occasion! Recandleme offers an elegant selection of jars for every type of candle you need.
 If you use more than one candle, they range from simple jars to elaborate vases with different displays.
-            </section>
+            </p>
         </div>
     </div>
     <div class="row">

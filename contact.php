@@ -7,27 +7,13 @@ include('assets/includes/header.php');
 
 <!--Header section-->
 
-<div class="container">
-    <div class="row mb-5">
-        <div class="col-xl-1 col-sm-1">
-            <div class="header-text-left ms-xl-4 me-xl-4 ms-sm-0 me-sm-0">
-            </div>
-        </div>
-        <div class="col-xl-10 col-sm-10">
-            <div class="header-text">
-                <h1 class="text-center">CONTACT</h1>
-            </div>
-        </div>
-        <div class="col-xl-1 col-sm-1">
-            <div class="header-text-right ms-xl-4 me-xl-4 ms-sm-0 me-sm-0">
-
-            </div>
-        </div>
-    </div>
+<div class="contact">
+    <h2 class="text-center d-flex align-items-center justify-content-center">Contact</h2>
+</div>
 
 
 <!--  Contact section-->
-
+<div class="container contact_content">
 <div class="row ">
         <div class="col-md-6 p-0">
             <div class="about_box_dark ">
@@ -134,7 +120,7 @@ include('assets/includes/header.php');
             </div>
         </div>
         </div>
-
+</div>
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     contactFunction();

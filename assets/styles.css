@@ -31,42 +31,11 @@ body {
     border-radius: 5px;
 }
 
-<<<<<<< HEAD
-/*.headerImgBackground {*/
-/*    background-image: url("/assets/images/luma-candles-K1Xi_R_mfpk-unsplash.jpg");*/
-/*    background-repeat:no-repeat;*/
-/*    background-size:cover;*/
-/*    background-position:center;*/
-/*}*/
+
+
 
 .headerImg {
-=======
-/*<<<<<<< HEAD*/
-/*.headerImg{*/
-/*=======*/
-
-
-/*.navbar-nav {*/
-/*    width: 100%;*/
-/*    margin: 0 auto;*/
-/*}*/
-
-/*.nav-item {*/
-/*    padding-left: 65px;*/
-/*    padding-right: 65px;*/
-/*}*/
-
-/*.headerLogo {*/
-/*    padding-top: 200px;*/
-/*    margin-top: 200px;*/
-/*    width:400px;*/
-/*    height:100px;*/
-/*}*/
-
-.headerImg {
->>>>>>> f79971eddb69db30a3f1e44b8989e6005156df24
     height: 300px;
->>>>>>> 363b3b0c9456b312d4d8c2a5898a687764c6a7b9
     width: 100%;
     height: 300px;
     object-fit: cover;
@@ -177,9 +146,9 @@ h3 {
     color: #D09683;
 }
 
-.bi:hover {
-    text-shadow: 0 0 10px black;
-}
+/*.bi:hover {*/
+/*    text-shadow: 0 0 10px black;*/
+/*}*/
 
 .bi-star-fill {
     font-size: 1.5rem;
@@ -309,6 +278,295 @@ footer a:link {
 
 /*Footer end*/
 
+/*About us*/
+
+
+.about_us {
+    background-image: url("../assets/images/about2.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    height: 85vh;
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+}
+
+
+.about_us h2 {
+    font-size: 5rem;
+    /*padding-top: 16rem;*/
+    padding-bottom: 1rem;
+    color: white;
+    font-weight: normal;
+}
+
+.about_us h4 {
+    font-weight: lighter;
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.team_photo {
+    /*border-radius: 50%;*/
+}
+/*About us*/
+
+/*Our principales*/
+.our_principales h2 {
+    padding: 4rem 3rem 1rem 3rem;
+    font-size: 3rem;
+    font-weight: lighter;
+}
+.our_principales p {
+    padding: 1rem 3rem 1rem 3rem;
+    font-weight: normal;
+    font-size: 1.5rem;
+
+}
+/*Our principales*/
+
+/*Eco icons*/
+.fa-leaf {
+    font-size: 3rem;
+    color: #2D4262;
+    transition: transform 1.5s ease;
+}
+.fa-leaf:hover {
+    transform: scale(1.3);
+}
+
+.fa-recycle{
+    font-size: 3rem;
+    color: #2D4262;
+    transition: transform 1.5s ease;
+}
+.fa-recycle:hover {
+    transform: scale(1.3);
+}
+.fa-dog {
+    font-size: 3rem;
+    color: #2D4262;
+    transition: transform 1.5s ease;
+}
+.fa-dog:hover {
+    transform: scale(1.3);
+}
+
+.fa-spa {
+    font-size: 3rem;
+    color: #2D4262;
+    transition: transform 1.5s ease;
+}
+.fa-spa:hover {
+    transform: scale(1.3);
+}
+
+.fa-circle-check {
+    color: #2D4262;
+    transition: transform 1.5s ease;
+}
+
+.fa-circle-check:hover {
+    transform: scale(1.3);
+}
+.eco_icons {
+    margin-top:3rem;
+    margin-bottom: 3rem;
+}
+
+.eco_icons span {
+    padding-left: 1rem;
+}
+
+.meet_team {
+    font-size: 3rem;
+    font-weight: lighter;
+    padding: 2rem;
+}
+/*Eco icons*/
+
+/*Blog*/
+.blog {
+    background-image: url("../assets/images/blog.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    height: 85vh;
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+}
+
+.blog h2 {
+    font-size: 5.5rem;
+    padding-bottom: 1rem;
+    color: white;
+    font-weight: normal;
+}
+
+.blog_content {
+    padding-bottom: 4rem;
+}
+
+.offers-row {
+    margin: 1rem 0 1rem 0;
+}
+/*Blog*/
+
+/*Contact*/
+.contact {
+    background-image: url("../assets/images/contact.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    height: 85vh;
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+}
+
+.contact h2 {
+    font-size: 5.5rem;
+    padding-bottom: 1rem;
+    color: rgba(10, 1, 1, 0.82);
+    font-weight: normal;
+}
+
+.contact_content {
+    margin-top: 3rem;
+}
+/*Contact*/
+
+/*HOME*/
+.home {
+    background-image: url("../assets/images/home.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    height: 85vh;
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+}
+
+.home h1 {
+    font-size: 4.5rem;
+    padding-bottom: 1rem;
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+}
+
+.header-text-home  h2{
+    font-weight: lighter;
+    font-size: 2.5rem ;
+    color: white;
+}
+
+.cart {
+    background-image: url("../assets/images/cart.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    height: 85vh;
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+}
+
+.cart h2 {
+    font-size: 4.5rem;
+    padding-bottom: 1rem;
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+}
+
+.basket-content {
+    padding-top: 4rem;
+}
+/*HOME*/
+
+/*CART*/
+.shop {
+    background-image: url("../assets/images/shop.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    height: 85vh;
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+    overflow: visible;
+}
+
+.shop h2 {
+    font-size: 4.5rem;
+    padding-bottom: 1rem;
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+}
+/*CART*/
+
+/*Special offer*/
+.special-offer {
+    background-color: #F5EBE4;
+    padding: 3rem;
+}
+
+
+.item span:before {
+    font-family: "FontAwesome";
+    content: "\f058";
+    padding-right: 5px;
+    font-style: normal;
+    font-size: 3rem;
+    color: #2D4262;
+}
+.special-offer h2 {
+    padding-bottom: 2rem;
+}
+/*Special offer*/
+
+/*Custom page one*/
+.custom-page-one {
+    background-image: url("../assets/images/offers.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    height: 85vh;
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+    overflow: visible;
+}
+
+.custom-page-one h2 {
+    font-size: 4.5rem;
+    padding-bottom: 1rem;
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+}
+
+.custom-page-one h6 {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    color: rgb(255, 255, 255);
+    font-weight: lighter;
+}
+/*Custom page one*/
+
+.fragrance-content {
+    padding-top: 4rem;
+    margin: 0;
+    width: 100%;
+}
+
+.scents h2 {
+    padding-top: 3rem;
+    font-size: 3rem;
+    color: black;
+    font-weight: lighter;
+}
+
+.scents h6 {
+    padding-top: 1rem;
+    font-weight: lighter;
+    color: black;
+    font-size: 1.1rem;
+}
 
 
 /* Extra small devices (phones, 600px and down) */
@@ -318,6 +576,13 @@ footer a:link {
         height: 55vw;
         object-fit: cover;
     }
+    .home h1 {
+        font-size: 2.5rem;
+        font-weight: lighter;
+    }
+.special-offer-icon {
+    display: grid;
+}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -326,6 +591,23 @@ footer a:link {
         width: 100%;
         height: 35vw;
         object-fit: cover;
+    }
+    .about_us h2 {
+        font-size: 3.5rem;
+
+    }
+
+    .about_us h4 {
+        font-size: 1.5rem;
+    }
+
+    .blog h2 {
+        font-size: 3.5rem;
+
+    }
+    .home h1 {
+        font-size: 3rem;
+        font-weight: lighter;
     }
 }
 
@@ -336,6 +618,24 @@ footer a:link {
         height: 35vw;
         object-fit: cover;
     }
+    .about_us h2 {
+        font-size: 5.5rem;
+
+    }
+
+    .blog h2 {
+        font-size: 6.5rem;
+
+    }
+
+    .about_us h4 {
+        font-size: 2rem;
+    }
+
+    .home h1 {
+        font-size: 3.5rem;
+        font-weight: lighter;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -344,6 +644,10 @@ footer a:link {
         width: 100%;
         height: 25vw;
         object-fit: cover;
+    }
+    .home h1 {
+        font-size: 3.5rem;
+        font-weight: lighter;
     }
 }
 
@@ -355,12 +659,14 @@ footer a:link {
         height: 15vw;
         object-fit: cover;
     }
+
+    .home h1 {
+        font-size: 4rem;
+        font-weight: normal;
+    }
 }
 
 /* Lukes additions (please move and edit as necessary) */
-.shop {
-    overflow: auto;
-}
 
 .shopImg {
     cursor: pointer;
@@ -481,3 +787,6 @@ footer a:link {
 }
 
 /* End of Lukes additions */
+
+
+

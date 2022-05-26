@@ -51,6 +51,7 @@
 
 <script src="assets/script.js"></script>
 <script src="assets/jquery.js"></script>
+<script src="https://kit.fontawesome.com/ad669c31b2.js" crossorigin="anonymous"></script>
 
 </body>
 

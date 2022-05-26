@@ -15,24 +15,13 @@ include('assets/includes/header.php');
 ?>
 
 <!--Header section-->
+<div class="cart">
+  <h2 class="text-center d-flex align-items-center justify-content-center">BASKET</h2>
+</div>
+<!--Header section-->
 
-<div class="container">
-  <div class="row">
-    <div class="col-xl-1 col-sm-1">
-      <div class="header-text-left ms-xl-4 me-xl-4 ms-sm-0 me-sm-0">
-      </div>
-    </div>
-    <div class="col-xl-10 col-sm-10">
-      <div class="header-text">
-        <h1 class="text-center">CART</h1>
-      </div>
-    </div>
-    <div class="col-xl-1 col-sm-1">
-      <div class="header-text-right ms-xl-4 me-xl-4 ms-sm-0 me-sm-0">
 
-      </div>
-    </div>
-  </div>
+<div class="container basket-content">
   <div class="container-fluid mt-3">
     <div class="row">
 
@@ -149,8 +138,8 @@ include('assets/includes/header.php');
             $_SESSION['items'] = $items;
           }
           echo '<script>location.href="cart.php";</script>';
-        } 
-        else if (isset($_POST['checkout'])) 
+        }
+        else if (isset($_POST['checkout']))
         {
           $errors = "";
           if (empty($_POST['name'])) {
@@ -223,17 +212,17 @@ include('assets/includes/header.php');
               </body>
               </html>
               ";
-          
+
               // Always set content-type when sending HTML email
               $headers = "MIME-Version: 1.0" . "\r\n";
               $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-          
+
               // More headers
               $headers .= "From: <$admin_email>" . "\r\n";
               # $headers .= 'Cc: myboss@example.com' . "\r\n";
-          
+
               mail($to,$subject,$message,$headers);
-            
+
             checkout($total, $order_id);
           } else {
             messageModal($errors);

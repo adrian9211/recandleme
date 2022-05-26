@@ -8,25 +8,16 @@ include('assets/includes/header.php');
 
 <!--Header section-->
 
-<div class="container">
-    <div class="row">
-        <div class="col-xl-1 col-sm-1">
-            <div class="header-text-left ms-xl-4 me-xl-4 ms-sm-0 me-sm-0">
-            </div>
-        </div>
-        <div class="col-xl-10 col-sm-10">
-            <div class="header-text">
-                <h1 class="text-center">SHOP PAGE</h1>
-            </div>
-        </div>
-        <div class="col-xl-1 col-sm-1">
-            <div class="header-text-right ms-xl-4 me-xl-4 ms-sm-0 me-sm-0">
-            </div>
-        </div>
-    </div>
+<div class="shop">
+    <h2 class="text-center d-flex align-items-center justify-content-center">CANDLE SCENTS</h2>
+<!--    <h4 class="text-center d-flex align-items-center justify-content-center">CUSTOMIZE YOUR CHOICE</h4>-->
 </div>
-<div class="container-fluid" style="width:90%">
-    <div class="row mt-4 ms-5 ps-5">
+
+
+<div class="container scents">
+    <h2 class="text-center">CANDLE SCENTS SELECTION</h2>
+    <h6 class="text-center">RECANDLEME COLLECTION </h6>
+    <div class="row justify-content-md-center fragrance-content ">
 
         <?php
         include('../db/dbaccess.php');
@@ -40,7 +31,7 @@ include('assets/includes/header.php');
         if (mysqli_num_rows($result2) > 0) {
             while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
                 if ($row['stock'] > 0 && $row['visible'] != 0) {
-                    echo '<div class="col-lg-2 shadow-sm m-1 pt-1 pb-2 d-flex flex-column">';
+                    echo '<div class="col-md-3 col-sm-6 shadow-sm p-3 d-flex flex-column">';
                     echo '<form method="POST" id="selectSize-' . $row['item_id'] . '" name="selectSize">';
                     echo '<input type="hidden" class="sub" name="item_id" value="' . $row['item_id'] . '">';
                     echo '<div class="row"><img src="shop/' . $row['img_url'] . '" alt="' . strip_tags($row['item_desc']) . '" style="width:100%" class="shopImg my-2" id="' . $row['item_id'] . '" onclick="showModal(this);"></div>';
@@ -63,7 +54,7 @@ include('assets/includes/header.php');
             $id = $_POST['item_id'];
             # echo '<script>alert("' . $id . '");</script>';
             require('../db/dbaccess.php');
-            # Check product id against database 
+            # Check product id against database
             $q = "SELECT * FROM products WHERE item_id = $id";
             $r = mysqli_query($dbc, $q);
             if (mysqli_num_rows($r) == 1) {
@@ -75,7 +66,7 @@ include('assets/includes/header.php');
                 }
                 # Check if cart already contains one of this product id.
                 if (isset($_SESSION['cart'][$id])) {
-                    # check if there is enough stock 
+                    # check if there is enough stock
                     if ($row['stock'] > $_SESSION['cart'][$id]['quantity']) {
                         # Add one more of this product.
                         $_SESSION['cart'][$id]['quantity']++;

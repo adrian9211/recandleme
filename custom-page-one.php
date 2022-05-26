@@ -8,25 +8,15 @@ include('assets/includes/header.php');
 
 <!--Header section-->
 
-<div class="container">
-    <div class="row">
-        <div class="col-xl-1 col-sm-1">
-            <div class="header-text-left ms-xl-4 me-xl-4 ms-sm-0 me-sm-0">
-            </div>
-        </div>
-        <div class="col-xl-10 col-sm-10">
-            <div class="header-text">
-                <h1 class="text-center">CREATE YOUR OWN FRAGRANCE</h1>
-            </div>
-        </div>
-        <div class="col-xl-1 col-sm-1">
-            <div class="header-text-right ms-xl-4 me-xl-4 ms-sm-0 me-sm-0">
-            </div>
-        </div>
-    </div>
+<div class="custom-page-one">
+    <h2 class="text-center d-flex align-items-center justify-content-center">CANDLE SCENTS</h2>
+    <h6 class="text-center d-flex align-items-center justify-content-center">LUXURY SCENTS NATURALLY MADE</h6>
+    <!--    <h4 class="text-center d-flex align-items-center justify-content-center">CUSTOMIZE YOUR CHOICE</h4>-->
 </div>
-<div class="container-fluid" style="width:90%">
-    <div class="row mt-4 ms-5 ps-5">
+<div class="container scents">
+    <h2 class="text-center">SELECT YOUR  SCENTS</h2>
+    <h6 class="text-center">STEP ONE: PICK THE FIRST SCENT  </h6>
+    <div class="row justify-content-md-center fragrance-content">
 
         <?php
         include('../db/dbaccess.php');
@@ -35,14 +25,14 @@ include('assets/includes/header.php');
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                 if ($row['visible'] != 0) {
-                    echo '<div class="col-lg-2 shadow-sm m-1 pt-1 pb-2 d-flex flex-column">';
+                    echo '<div class=" col-md-3 col-sm-6 shadow-sm pt-1 pb-2">';
                     echo '<form method="POST" id="selectItem-' . $row['scent_id'] . '" name="selectItem">';
                     echo '<input type="hidden" class="sub" name="item_id" value="' . $row['scent_id'] . '">';
                     echo '<div class="row"><img src="shop/' . $row['img_url'] . '" alt="' . strip_tags($row['description']) . '" style="width:100%" class="shopImg my-2" id="' . $row['scent_id'] . '" onclick="showModal(this);"></div>';
                     echo '<div class="row fw-bold px-3 h5">' . $row['scent_name'] . '</div>';
-                    echo '<div class="row px-1 ms-2">' . $row['description'] . '</div>';
-                    
-                    echo '<div class="row px-1 pt-1 mt-auto"><input type="submit" name="addToCart" class="btn btn-sm bgCustomRed mt-auto" value="Select"></div>';
+                    echo '<div class="row px-1 ms-2 d-flex">' . $row['description'] . '</div>';
+
+                    echo '<div class="row px-1 pt-1 d-flex justify-content-end align-items-end"><input type="submit" name="addToCart"  class="btn btn-sm  bgCustomRed" value="Select"></div>';
                     echo '</form></div>';
                 }
             }
@@ -53,7 +43,7 @@ include('assets/includes/header.php');
             $id = $_POST['item_id'];
             # echo '<script>alert("' . $id . '");</script>';
             require('../db/dbaccess.php');
-            # Check product id against database 
+            # Check product id against database
             $q = "SELECT * FROM scents WHERE scent_id = $id";
             $r = mysqli_query($dbc, $q);
             if (mysqli_num_rows($r) == 1) {
@@ -68,6 +58,42 @@ include('assets/includes/header.php');
 
         ?>
 
+    </div>
+
+    <div class="jars">
+        <div class="row">
+            <h2 class="text-center d-flex align-items-center justify-content-center pt-5">SELECT YOUR FAVOURITE JAR</h2>
+            <h6 class="text-center d-flex align-items-center justify-content-center pb-4">STEP THREE: SELECT THE JAR AND QUANTITY </h6>
+            <div class="col d-flex align-items-center justify-content-center">
+                <div class="card team_photo" style="width: 25rem;">
+                    <img src="/assets/images/Rectangle%2018.png" class="card-img-top" alt="Stefania profile photo">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Candle jar avaible in 3 sizes</h5>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col d-flex align-items-center justify-content-center">
+                <div class="card team_photo" style="width: 25rem;">
+                    <img src="assets/images/Rectangle%2019.png" class="card-img-top" alt="Adrian profile photo">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">
+                            Candle jar avaible in 3 sizes
+                        </h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col d-flex align-items-center justify-content-center">
+                <div class="card team_photo" style="width: 25rem;">
+                    <img src="/assets/images/Rectangle%2017.png" class="card-img-top" alt="Luke profile photo">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Candle jar avaible in 3 sizes</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!--    Folllow Us-->
