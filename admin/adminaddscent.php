@@ -48,7 +48,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $name = mysqli_real_escape_string($dbc, trim($_POST['name']));
   $q = "select * from scents where scent_name ='$name'";
   $r = mysqli_query($dbc, $q);
-  if(mysqli_num_rows($r) > 0) { echo '<script>alert("Scent name already exists, please choose another");</script>'; echo '<script>location.href="adminscents.php";</script>'; }
+  if(mysqli_num_rows($r) > 0) { echo '<script>alert("Scent name already exists, please choose another");</script>'; echo '<script>location.href="adminaddscent.php";</script>'; }
 
   $img = 'no-image.png';
   if($_FILES['item_img']['size'] > 0) {

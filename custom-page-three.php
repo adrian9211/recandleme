@@ -25,8 +25,8 @@ include('assets/includes/header.php');
         </div>
     </div>
 </div>
-<div class="container-fluid" style="width:90%">
-    <div class="row mt-4 ms-5 ps-5">
+<div class="container-fluid mb-5" style="width:90%">
+    <div class="row mt-4 ms-5 ps-5 mb-5">
 
         <?php
         include('../db/dbaccess.php');
@@ -35,7 +35,7 @@ include('assets/includes/header.php');
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                 if ($row['visible'] != 0) {
-                    echo '<div class="col-lg-2 shadow-sm m-1 pt-1 pb-2 d-flex flex-column">';
+                    echo '<div class="col-lg-3 shadow-sm m-1 pt-1 pb-2 d-flex flex-column">';
                     echo '<form method="POST" id="selectItem-' . $row['scent_id'] . '" name="selectItem">';
                     echo '<input type="hidden" class="sub" name="item_id" value="' . $row['scent_id'] . '">';
                     echo '<div class="row"><img src="shop/' . $row['img_url'] . '" alt="' . strip_tags($row['description']) . '" style="width:100%" class="shopImg my-2" id="' . $row['scent_id'] . '" onclick="showModal(this);"></div>';
@@ -66,7 +66,7 @@ include('assets/includes/header.php');
                 $r2 = $dbc->query($q2);
                 $row2 = $r2->fetch_assoc();
                 # Add one of this product to the cart.
-                $_SESSION['cart'][31] = array('quantity' => 1, 'size' => 'Custom', 'price' => $row2['custom_price']);
+                $_SESSION['cart'][22] = array('quantity' => 1, 'size' => 'Custom', 'price' => $row2['custom_price']);
                 if (!isset($_SESSION['items'])) {
                     $_SESSION['items'] = "1";
                 } else {
