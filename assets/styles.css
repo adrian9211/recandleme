@@ -6,14 +6,14 @@ body {
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .show>.nav-link {
     color: #F28663;
-    font-weight: bolder;
+  
 }
 
 
 .navbar-light .navbar-nav .nav-link,
 .navbar-light .navbar-nav .show>.nav-link {
     color: #8F5441;
-    font-weight: bold;
+    
 }
 
 .bg-light {
@@ -145,6 +145,8 @@ h3 {
     font-size: 3rem;
     color: #D09683;
 }
+
+
 
 /*.bi:hover {*/
 /*    text-shadow: 0 0 10px black;*/
@@ -312,9 +314,8 @@ footer a:link {
 /*About us*/
 
 /*Our principales*/
-.our_principales h2 {
-    padding: 4rem 3rem 1rem 3rem;
-    font-size: 3rem;
+.h3_section h3{
+    font-size: 1rem;
     font-weight: lighter;
 }
 .our_principales p {
@@ -383,6 +384,9 @@ footer a:link {
     font-weight: lighter;
     padding: 2rem;
 }
+
+
+
 /*Eco icons*/
 
 /*Blog*/
@@ -437,7 +441,7 @@ footer a:link {
 
 /*HOME*/
 .home {
-    background-image: url("../assets/images/home.png");
+    background-image: url("../assets/images/home.jpg");
     background-repeat:no-repeat;
     background-size:cover;
     background-position:center;
@@ -457,6 +461,7 @@ footer a:link {
     font-weight: lighter;
     font-size: 2.5rem ;
     color: white;
+   
 }
 
 .cart {

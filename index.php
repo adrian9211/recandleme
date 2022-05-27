@@ -9,11 +9,11 @@ include('assets/includes/header.php');
 <!--    <h2 class="text-center d-flex align-items-center justify-content-center">Contact</h2>-->
     <div class="row">
         <h1 class="text-center">CREATE AND PERSONALISE YOUR CANDLE</h1>
+  
     </div>
     <div class="container">
     <div class="row">
-        <div class="col-12 m-xl-5 m-sm-1 header-text-home">
-            <h2>Choose between more than 10 fragrances</h2>
+    
             <a href="shop.php">
                 <button class="btn btn btn-secondary mt-3" type="submit">Shop now</button>
             </a>
@@ -21,10 +21,13 @@ include('assets/includes/header.php');
     </div>
     </div>
 </div>
+
 <div class="container">
+
     <div class="row">
         <div class="col-12 mt-4 ">
-             <img src="assets/images/luma-candles-K1Xi_R_mfpk-unsplash.jpg" class="headerImg" alt="head img">
+    
+             <img src="assets/images/gemma-evans-GUCXtCLqzdY-unsplash.jpg" class="headerImg" alt="head img">
             <p class="text-center p-5 whyUsSection">
             <b>Welcome to the homepage of Recandleme Aromas<b>, an organic wax candle manufacture made right
 here in the UK. <br> Each of our premium scented candles has been carefully crafted with a designer
@@ -68,27 +71,29 @@ If you use more than one candle, they range from simple jars to elaborate vases 
     <div class="row text-center  justify-content-md-center">
         <div class="col-xl-4 col-sm-12 mt-4  d-flex justify-content-center">
             <div class="card " style="width: 18rem;">
-                <img src="assets/images/daniel-andrade-WZQgt3MZCe0-unsplash.jpg" class="card-img-top" alt="more durability">
+                <img src="assets/images/pexels-flat-hito-862946.jpg" class="card-img-top" alt="more durability">
                 <div class="card-body">
-                    <p class="card-text">More durability</p>
+                    <p class="card-text">Refiling</p>
                 </div>
             </div>
         </div>
 
         <div class="col-xl-4 col-sm-12 mt-4  d-flex justify-content-center">
             <div class="card" style="width: 18rem;">
-                <img src="assets/images/gemma-evans-GUCXtCLqzdY-unsplash.jpg" class="card-img-top" alt="organic">
+                <img src="assets/images/luma-candles-K1Xi_R_mfpk-unsplash.jpg" class="card-img-top" alt="organic">
                 <div class="card-body">
-                    <p class="card-text">Organic</p>
+                    <p class="card-text">Our Collection</p>
                 </div>
             </div>
         </div>
 
+       
+
         <div class="col-xl-4 col-sm-12 mt-4  d-flex justify-content-center">
             <div class="card" style="width: 18rem;">
-                <img  src="assets/images/david-everett-strickler-9QndjmrMeBE-unsplash.jpg" class="card-img-top" alt="personal scent">
+                <img  src="assets/images/scents.jpg" class="card-img-top" alt="scents">
                 <div class="card-body">
-                    <p class="card-text">Personal scents</p>
+                    <p class="card-text">Make your fragrance</p>
                 </div>
             </div>
         </div>
@@ -107,11 +112,7 @@ If you use more than one candle, they range from simple jars to elaborate vases 
             </section>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 mt-4">
-            <img src="assets/images/ellieelien-unsplash.jpg" class="card-img-top" alt="...">
-        </div>
-    </div>
+    
 <!--    Our principales-->
 
     <!--    trusting eco friendly recycle Icons-->
