@@ -71,7 +71,7 @@ If you use more than one candle, they range from simple jars to elaborate vases 
     <div class="row text-center  justify-content-md-center">
         <div class="col-xl-4 col-sm-12 mt-4  d-flex justify-content-center">
             <div class="card " style="width: 18rem;">
-                <img src="assets/images/pexels-flat-hito-862946.jpg" class="card-img-top" alt="more durability">
+                <a href="custom-page-one.php"><img src="assets/images/pexels-flat-hito-862946.jpg" class="card-img-top" alt="more durability"></a>
                 <div class="card-body">
                     <p class="card-text">Refiling</p>
                 </div>
@@ -80,7 +80,7 @@ If you use more than one candle, they range from simple jars to elaborate vases 
 
         <div class="col-xl-4 col-sm-12 mt-4  d-flex justify-content-center">
             <div class="card" style="width: 18rem;">
-                <img src="assets/images/luma-candles-K1Xi_R_mfpk-unsplash.jpg" class="card-img-top" alt="organic">
+                <a href="shop.php"><img src="assets/images/luma-candles-K1Xi_R_mfpk-unsplash.jpg" class="card-img-top" alt="organic"></a>
                 <div class="card-body">
                     <p class="card-text">Our Collection</p>
                 </div>
@@ -91,7 +91,7 @@ If you use more than one candle, they range from simple jars to elaborate vases 
 
         <div class="col-xl-4 col-sm-12 mt-4  d-flex justify-content-center">
             <div class="card" style="width: 18rem;">
-                <img  src="assets/images/scents.jpg" class="card-img-top" alt="scents">
+                <a href="custom-page-one.php"><img  src="assets/images/scents.jpg" class="card-img-top" alt="scents"></a>
                 <div class="card-body">
                     <p class="card-text">Make your fragrance</p>
                 </div>

@@ -31,23 +31,19 @@ include('assets/includes/header.php');
         if (mysqli_num_rows($result2) > 0) {
             while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
                 if ($row['stock'] > 0 && $row['visible'] != 0) {
-// <<<<<<< HEAD
                     echo '<div class="col-md-3 col-sm-6 shadow-sm p-3 d-flex flex-column">';
-// =======
-                    echo '<div class="col-lg-3 shadow-sm m-1 pt-1 pb-2 d-flex flex-column">';
-// >>>>>>> 422499c358676f384785fbf0c5680effe405cec2
                     echo '<form method="POST" id="selectSize-' . $row['item_id'] . '" name="selectSize">';
                     echo '<input type="hidden" class="sub" name="item_id" value="' . $row['item_id'] . '">';
                     echo '<div class="row"><img src="shop/' . $row['img_url'] . '" alt="' . strip_tags($row['item_desc']) . '" style="width:100%" class="shopImg my-2" id="' . $row['item_id'] . '" onclick="showModal(this);"></div>';
                     echo '<div class="row fw-bold px-3 h5">' . $row['item_name'] . '</div>';
                     echo '<div class="row px-1 ms-2">' . $row['item_desc'] . '</div>';
-                    echo '<div class="row mt-auto px-1"><select class="form-select form-select-sm mt-auto" name="' . $row['item_id'] . '-size" id="' . $row['item_id'] . '-size">';
+                    echo '<div class="row px-1"><select class="form-select form-select-sm" name="' . $row['item_id'] . '-size" id="' . $row['item_id'] . '-size">';
                     echo '<option value="" disabled selected>Please choose a size</option>';
                     foreach ($size as $itemsize) {
                         echo '<option value="' . $itemsize . '">' . $itemsize . '</option>';
                     }
                     echo '</select></div>';
-                    echo '<div class="row px-1 pt-1 mt-auto"><input type="submit" name="addToCart" class="btn btn-sm bgCustomBlue mt-auto" value="Add To Cart"></div>';
+                    echo '<div class="row px-1 pt-1"><input type="submit" name="addToCart" class="btn btn-sm bgCustomBlue mt-auto" value="Add To Cart"></div>';
                     echo '</form></div>';
                 }
             }
