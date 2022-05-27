@@ -10,19 +10,8 @@ include('assets/includes/header.php');
 
 <div class="container">
     <div class="row">
-        <div class="col-xl-1 col-sm-1">
-            <div class="header-text-left ms-xl-4 me-xl-4 ms-sm-0 me-sm-0">
-            </div>
-        </div>
-        <div class="col-xl-10 col-sm-10">
-            <div class="header-text">
-                <h1 class="text-center">CREATE YOUR OWN FRAGRANCE</h1>
-            </div>
-        </div>
-        <div class="col-xl-1 col-sm-1">
-            <div class="header-text-right ms-xl-4 me-xl-4 ms-sm-0 me-sm-0">
-            </div>
-        </div>
+        <h2 class="text-center d-flex align-items-center justify-content-center pt-5">SELECT YOUR FAVOURITE JAR</h2>
+        <h6 class="text-center d-flex align-items-center justify-content-center pb-4">STEP THREE: SELECT THE JAR</h6>
     </div>
 </div>
 <div class="container-fluid mb-5" style="width:90%">
