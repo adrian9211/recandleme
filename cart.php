@@ -49,7 +49,7 @@ include('assets/includes/header.php');
           $total += $subtotal;
 
           # Display the row/s:
-          echo "<div class='row mb-1'> <div class='col-lg-2 bg-light fw-bold'>{$row['item_name']}</div> <div class='col-lg-5 bg-light'>";
+          echo "<div class='row mb-1'> <div class='col-lg-2 bg-light fw-bold'>{$row['item_name']}</div> <div class='col-lg-4 bg-light'>";
           if(isset($_SESSION['cust'])) {
             echo $_SESSION['cust'][1].', '.$_SESSION['cust'][2].', '.$_SESSION['cust'][3];
           }
@@ -64,7 +64,7 @@ include('assets/includes/header.php');
               echo $arrayName . ": " . $value . "<br>";
             }
           }
-          echo "</div><div class='col-lg-1 bg-light'><input type=\"number\" name=\"qty[{$row['item_id']}]\" value=\"{$_SESSION['cart'][$row['item_id']]['quantity']}\" min=\"0\" max=\"{$row['stock']}\" class=\"numInput\"></div><div class='col-lg-1 bg-light'>@ {$_SESSION['cart'][$row['item_id']]['price']} = </div> <div class='col-lg-1 bg-light'>" . number_format($subtotal, 2) . "</div></div>";
+          echo "</div><div class='col-lg-1 bg-light'>Quantity:</div><div class='col-lg-1 bg-light'><input type=\"number\" name=\"qty[{$row['item_id']}]\" value=\"{$_SESSION['cart'][$row['item_id']]['quantity']}\" min=\"0\" max=\"{$row['stock']}\" class=\"numInput\"></div><div class='col-lg-1 bg-light'>@ {$_SESSION['cart'][$row['item_id']]['price']} = </div> <div class='col-lg-1 bg-light'>" . number_format($subtotal, 2) . "</div></div>";
         }
 
         # Close the database connection.

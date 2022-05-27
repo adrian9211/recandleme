@@ -16,7 +16,7 @@ include('assets/includes/header.php');
      <h2 class="text-center meet_team">MEET OUR TEAM</h2>
      <div class="col d-flex align-items-center justify-content-center">
      <div class="card " style="width: 18rem;">
-       <img src="/assets/images/Stefania_profile.png" class="card-img-top team_photo" alt="Stefania profile photo">
+       <img src="assets/images/Stefania_profile.png" class="card-img-top team_photo" alt="Stefania profile photo">
        <div class="card-body">
          <h5 class="card-title text-center">CEO</h5>
          <p class="card-text text-center">Stefania Annunziata</p>
@@ -26,7 +26,7 @@ include('assets/includes/header.php');
 
    <div class="col d-flex align-items-center justify-content-center">
         <div class="card " style="width: 18rem;">
-          <img src="/assets/images/Luke_profile.png" class="card-img-top team_photo" alt="Luke profile photo">
+          <img src="assets/images/me7.jpg" class="card-img-top team_photo" alt="Luke profile photo">
           <div class="card-body">
             <h5 class="card-title text-center">CTO</h5>
             <p class="card-text text-center">Luke Ker</p>
