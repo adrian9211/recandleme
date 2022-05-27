@@ -60,7 +60,7 @@ include('assets/includes/header.php');
 
     </div>
 
-    <div class="jars">
+    <!-- <div class="jars">
         <div class="row">
             <h2 class="text-center d-flex align-items-center justify-content-center pt-5">SELECT YOUR FAVOURITE JAR</h2>
             <h6 class="text-center d-flex align-items-center justify-content-center pb-4">STEP THREE: SELECT THE JAR AND QUANTITY </h6>
@@ -94,7 +94,7 @@ include('assets/includes/header.php');
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!--    Folllow Us-->
 

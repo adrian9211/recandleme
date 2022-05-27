@@ -19,6 +19,11 @@ include('assets/includes/header.php');
 
         <?php
         include('../db/dbaccess.php');
+        $q = "SELECT * FROM sizes WHERE size_type = 'sz'";
+        $r = mysqli_query($dbc, $q);
+        while ($sizes = mysqli_fetch_assoc($r)) {
+            $size[] = $sizes['sz_size'] . ' &pound;' . $sizes['price'];
+        }
         $query = "SELECT * FROM scents WHERE scent_type = 3";
         $result = mysqli_query($dbc, $query);
         if (mysqli_num_rows($result) > 0) {
@@ -30,7 +35,12 @@ include('assets/includes/header.php');
                     echo '<div class="row"><img src="shop/' . $row['img_url'] . '" alt="' . strip_tags($row['description']) . '" style="width:100%" class="shopImg my-2" id="' . $row['scent_id'] . '" onclick="showModal(this);"></div>';
                     echo '<div class="row fw-bold px-3 h5">' . $row['scent_name'] . '</div>';
                     echo '<div class="row px-1 ms-2">' . $row['description'] . '</div>';
-                    
+                    echo '<div class="row px-1"><select class="form-select form-select-sm" name="' . $row['scent_id'] . '-size" id="' . $row['scent_id'] . '-size">';
+                    echo '<option value="" disabled selected>Please choose a size</option>';
+                    foreach ($size as $itemsize) {
+                        echo '<option value="' . $itemsize . '">' . $itemsize . '</option>';
+                    }
+                    echo '</select></div>';
                     echo '<div class="row px-1 pt-1 mt-auto"><input type="submit" name="addToCart" class="btn btn-sm bgCustomRed mt-auto" value="Select"></div>';
                     echo '</form></div>';
                 }
@@ -48,14 +58,22 @@ include('assets/includes/header.php');
             if (mysqli_num_rows($r) == 1) {
                 $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
 
+                $tmpName = $id . '-size';
+                if (!isset($_POST[$tmpName]) || $_POST[$tmpName] == '') {
+                    confirmModal('Please select a size', 'custom-page-three.php', '');
+                    exit();
+                }
+
                 # Add selection to the cart.
                 $_SESSION['cust'][3] = $row['scent_name'];
-                # Get custom price
-                $q2 = "SELECT custom_price from settings where id = 1";
-                $r2 = $dbc->query($q2);
-                $row2 = $r2->fetch_assoc();
+
+                $sz = array();
+                $prc = array();
+                preg_match("/^[a-zA-Z]+\s/", $_POST[$tmpName], $sz);
+                preg_match("/[0-9\.]+$/", $_POST[$tmpName], $prc);
+
                 # Add one of this product to the cart.
-                $_SESSION['cart'][22] = array('quantity' => 1, 'size' => 'Custom', 'price' => $row2['custom_price']);
+                $_SESSION['cart'][22] = array('quantity' => 1, 'size' => $sz[0], 'price' => $prc[0]);
                 if (!isset($_SESSION['items'])) {
                     $_SESSION['items'] = "1";
                 } else {
